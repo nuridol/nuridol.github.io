@@ -10,30 +10,19 @@ $(function () {
     url = url.replace("//mobile.twitter.", "//twitter.");
 
     // get json data
-    $.ajax({
-      url: "https://query.yahooapis.com/v1/public/yql?"+ "q=select%20src%20from%20html%20where%20url%3D%22"+ encodeURIComponent(url)+ "%22%20and%20compat=%22html5%22%20and%20xpath=%27//div[contains%28@class,%22AdaptiveMedia%22%29]/img%27&format=json",
-      beforeSend: function(xhr){
-        if (xhr.overrideMimeType)
-        {
-          xhr.overrideMimeType("application/json");
-        }
-      },
-      dataType: 'json',
-      async: true,
-      cache: false
-    })
-    .success(function(data) {
-      if (!data.query.results || !data.query.results.img) {
+
+    $.getJSON(
+      "https://query.yahooapis.com/v1/public/yql?"+ "q=select%20*%20from%20htmlstring%20where%20url%3D%22"+ encodeURIComponent(url)+ "%22%20and%20xpath=%27//div[contains%28@class,%22AdaptiveMedia%22%29]/img%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=", function(data) {
+      if (!data.query.results || !data.query.results.result) {
         $("#picList").html('<div class="alert alert-danger" role="alert">No data. Try later.</div>');
         return;
       }
-      for (var index in data.query.results.img) {
-        console.log(index);
-        var src = index != "src" ? data.query.results.img[index].src : data.query.results.img[index];
-        addImage(src);
-      }
+      var $tempHtml = $("<div>" + data.query.results.result + "</div>").find("img").each(function(i, elem) {
+      	//console.log($(elem));
+        addImage($(elem).prop("src"));
+      });
     })
-    .error(function(e) { alert("error!" + e.statusText); return; });
+    .fail(function(e) { alert("error!" + e.statusText); return; });
   }
 
   function addImage(url) {
@@ -43,7 +32,7 @@ $(function () {
 
     // console.log(url);
     var origSrc = url + ":orig";
-    var downUrl = url.replace(/^.*\//, '');
+    var downUrl = url.replace(/^.*\/|.org$/, '');
     var element = '<div class="col-xs-6 col-md-3"><a href="' + origSrc + '" class="thumbnail" download="' + downUrl + '"><img src="'+ origSrc + '"></a></div>';
     $('#picList').append(element);
   }
