@@ -1,0 +1,297 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+	height:100%;
+}
+body {
+    font-size: 1.3em;
+    background: rgb(246, 246, 246) url("/images/c-bg.gif") center repeat-y;
+	font: "Tahoma",Meiryo, "メイリオ", "MS UI Gothic","Malgun Gothic","맑은 고딕", "굴림","Gulim","Lucida Sans Unicode","sans-serif", "APPLEGOTHIC", Verdana, Geneva, Arial, Helvetica, sans-serif;
+	height:100%;
+}
+
+/* links */
+
+a:link {
+text-decoration: none;
+color: #c30;
+}
+a:visited {
+text-decoration: none;
+color: #c30;
+}
+a:hover {
+text-decoration: none;
+color: #930;
+}
+a:active {
+text-decoration: none;
+color: #c30;
+}
+a img { 
+border: 0; 
+}
+
+
+
+div.bar {
+    margin-bottom: 10px;
+}
+
+div.auto_complete {
+    width: 100%;
+    background: #E1F0B4;
+}
+
+div.auto_complete ul {
+    border:1px solid #888;
+    margin:0;
+    padding:0;
+    width:100%;
+    list-style-type:none;
+}
+
+div.auto_complete ul li {
+    margin:0;
+    padding:2px;
+}
+
+div.auto_complete ul li.selected { 
+    background-color: #58A8E1; 
+}
+
+div.auto_complete ul strong.highlight { 
+    color: #800; 
+    margin:0;
+    padding:0;
+}
+
+table, td, a {
+	color: #000;
+}
+
+/* make the TH elements pretty */
+table.timeTable thead th {
+	background: #C96;
+	border-left: 1px solid #EB8;
+	border-right: 1px solid #B74;
+	border-top: 1px solid #EB8;
+	font-weight: normal;
+	padding: 4px 3px;
+	text-align: center;
+    color: #fff;
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+tbody.timeContent td, tbody.timeContent tr.normalRow td {
+	background: #FFF;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px;
+	color: #444;
+}
+
+tbody.timeContent tr.alternateRow td {
+	background: #EEE;
+	border-bottom: none;
+	border-left: none;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #DDD;
+	padding: 2px 3px 3px 4px;
+	font-size: 1.3em;
+	color: #000;
+	font-weight: bold;
+}
+
+div.tableContainer {
+	clear: both;
+	border: 1px solid #963;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+thead th {
+    text-align: center;
+}
+
+span.start, span.end {
+    font-size: 0.7em;
+    margin-left: 0.5em;
+}
+
+span.start {
+    color: #EF3B42;
+}
+
+span.end {
+    color: #247EAC;
+}
+
+tbody.timeContent tr.normalRow td.time {
+    text-align: right;
+    width: 20%;
+}
+
+tbody.timeContent tr.normalRow td.line {
+    padding-left: 20px;
+    background: url(/images/i_01.gif) no-repeat;
+    width: 65%;
+}
+
+tbody.timeContent tr.normalRow td.info {
+    width: 15%;
+}
+
+#searchresult {
+    z-index: 1;
+    display:block; 
+    background-color: white; 
+    padding: 10px;
+}
+
+#content-box {
+	min-height: 100%;
+	margin: -65px auto -1.5em auto;
+}
+
+*html #content-box {
+	height: 100%;
+}
+
+div.content {
+	width: 46em;
+	margin: auto;
+	padding: 65px 0 1.5em;
+}
+
+div#errormsg {
+    width: 80%;
+    margin: 5px auto;
+    background-color:#FCFECC;
+    text-align: center;
+    padding: 10px;
+    color: #F70909;
+}
+
+fieldset.inputbox {
+    width: 96%;
+    background-color:#FAFAFA;
+    border-left:1px solid #BBBBBB;
+    border-right:1px solid #BBBBBB;
+    overflow:auto;
+    padding:15px 10px;
+}
+
+legend {
+    color:#00CC33;
+    font-weight:bold;
+    padding:2px 5px;
+}
+
+div.searchbox {
+    width: 32em;
+    margin: 30px auto 0 auto;
+}
+
+div.resultinfo {
+    width: 36em;
+    margin: 15px auto 0 auto;
+}
+
+div#summary {
+    margin-top: 15px;
+    padding: 10px;
+}
+
+div#summary .again {
+    margin: 5px auto auto 10px;
+}
+
+div#summary .again a {
+     width: 6em;
+     height: 1.3em;
+     padding:3px;
+     display: block;
+     text-align: center;
+     vertical-align: middle;
+     border: 1px solid #555;
+     border-top: 1px solid #eee;
+     border-left: 1px solid #eee;
+     text-decoration: none;
+     color:#464E42;
+     background:#B5EF95;
+}
+
+div#summary .again a:hover {
+    color:#fff;
+    background:#92CF6F;
+    font-weight: bold;
+}
+
+div.notice {
+    margin-top: 30px;
+    text-align: right;
+    color: #ED6C1F;
+}
+
+div#footer {
+	text-align:center;
+    vertical-align: middle;
+	color:#11428F;
+	width:100%;
+	height: 1.5em;
+	border-top: #ccc dotted 1px;
+	border-bottom: #ccc dotted 1px;
+	background:#F8F7EF;
+/*	position: absolute;
+	bottom: 0;
+*/
+}
+/* ---------------------------------------------------
+			banner
+------------------------------------------------------ */
+#banner {
+width: 428px;
+margin: 0 auto;
+height: 50px;
+padding: 0 0 12px;
+background: #696969 url(/images/header.gif) no-repeat 0 100%;
+text-align: center;
+position: relative;
+z-index: 1;
+}
+#banner-inner {
+padding: 10px 20px;
+background: url(/images/header-in.gif) repeat-y;
+}
+#banner-header {
+margin: 0;
+font-size: 0.9em;
+letter-spacing: 0.2em;
+}
+#banner-header a {
+color: #eee;
+}
+#banner-header a:hover {
+color: #fff;
+}
+#banner-description {
+margin: 0;
+font-size: 0.85em;
+color: #b2b2b2;
+line-height: 1.4em;
+}
+
+#submit {
+    padding: 2px;
+    font-size: 0.9em;
+    width: 5em;
+}

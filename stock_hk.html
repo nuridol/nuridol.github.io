@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/navbar.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://raw.githubusercontent.com/aFarkas/html5shiv/master/dist/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <meta name="description" content="iPhone stock check(HK)">
+    <meta name="author" content="NuRi">
+    <!-- http://www.wpzoom.com/wpzoom/new-freebie-wpzoom-developer-icon-set-154-free-icons/ -->
+    <link rel="shortcut icon" href="icon/tools.png">
+    <title>NuRi's Tools - iPhone Stock HK</title>
+    <style>
+        #table {
+          font-size: 95%;
+        }
+        td,th{
+          text-align: center;   
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">NuRi's Tools</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="if_convert.html"><span class="glyphicon glyphicon-refresh"></span> Iframe</a></li>
+              <li><a href="ut_convert.html"><span class="fa fa-youtube fa-lg"></span> YouTube</a></li>
+              <li><a href="mapconvert.html"><span class="glyphicon glyphicon-map-marker"></span> Maps</a></li>
+              <li><a href="stock_jp.html"><span class="glyphicon glyphicon-phone"></span> <small>iPhone stock JP</small></a></li>
+              <li class="active"><a href="stock_hk.html"><span class="glyphicon glyphicon-phone"></span> <small>iPhone stock HK</small></a></li>
+              <li><a href="twitter.html"><span class="fa fa-twitter fa-lg"></span> <small>Twitter Pic <span class="glyphicon glyphicon-download"></small></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!-- /.container -->
+      </div>
+
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+          <h2>iPhone 7 <a href="https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability"><span class="label label-success">Stock</span></a> <span class="glyphicon glyphicon-search"></span> <span class="badge">HK</span></h2>
+        </div>
+
+        <div class="panel panel-success">
+          <div class="panel-heading" id="time">Wait...</div>
+
+          <table class="table table-striped table-hover table-condensed" id="table">
+            <thead><!-- th>type</th><th>Shibuya</th><th>Omotesando</th><th>Ginza</th --></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="panel panel-default" id="watchPanel">
+          <div class="panel-heading">Watch items</div>
+          <div class="panel-body">
+            <div>
+              <input type="hidden" value="" id="watchData">
+              <input type="hidden" value="" id="lastCheck">
+              <textarea class="form-control" rows="3" id="logtext" readonly placeholder="check log"></textarea>
+              <div id="watchList"></div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-warning btn-sm" id="refresh">Refresh</button>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit">&copy; nuridol.net</p>
+      </div>
+    </div>
+ 
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+     <!-- https://github.com/scottjehl/Respond -->
+    <!-- script src="js/respond.min.js"></script -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-36127443-1', 'auto');
+      ga('require', 'linkid', 'linkid.js');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+    <script src="js/iphone_stock_hk.js?_ver=20160909"></script>
+  </body>
+</html>
