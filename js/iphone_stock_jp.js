@@ -1,5 +1,78 @@
 $(function () {
-  // 6 models
+  // X models
+  var modelList={
+	"MQAX2J/A" : "X 64GB Space Gray",
+	"MQAY2J/A" : "X 64GB Silver",
+	"MQC12J/A" : "X 256GB Space Gray",
+	"MQC22J/A" : "X 256GB Silver"
+  };
+
+//   // 7 models
+//   var modelList={
+// 	"MNCF2J/A" : "7 32GB Silver",
+// 	"MNCG2J/A" : "7 32GB Gold",
+// 	"MNCJ2J/A" : "7 32GB Rose Gold",
+// 	"MNCE2J/A" : "7 32GB Black",
+// 
+// 	"MNCL2J/A" : "7 128GB Silver",
+// 	"MNCM2J/A" : "7 128GB Gold",
+// 	"MNCN2J/A" : "7 128GB Rose Gold",
+// 	"MNCK2J/A" : "7 128GB Black",
+// 	"MNCP2J/A" : "7 128GB Jet Black",
+// 
+// 	"MNCR2J/A" : "7 256GB Silver",
+// 	"MNCT2J/A" : "7 256GB Gold",
+// 	"MNCU2J/A" : "7 256GB Rose Gold",
+// 	"MNCQ2J/A" : "7 256GB Black",
+// 	"MNCV2J/A" : "7 256GB Jet Black",
+// 
+// 	"MNRA2J/A" : "7+ 32GB Silver",
+// 	"MNRC2J/A" : "7+ 32GB Gold",
+// 	"MNRD2J/A" : "7+ 32GB Rose Gold",
+// 	"MNR92J/A" : "7+ 32GB Black",
+// 
+// 	"MN6G2J/A" : "7+ 128GB Silver",
+// 	"MN6H2J/A" : "7+ 128GB Gold",
+// 	"MN6J2J/A" : "7+ 128GB Rose Gold",
+// 	"MN6F2J/A" : "7+ 128GB Black",
+// 	"MN6K2J/A" : "7+ 128GB Jet Black",
+// 
+// 	"MN6M2J/A" : "7+ 256GB Silver",
+// 	"MN6N2J/A" : "7+ 256GB Gold",
+// 	"MN6P2J/A" : "7+ 256GB Rose Gold",
+// 	"MN6L2J/A" : "7+ 256GB Black",
+// 	"MN6Q2J/A" : "7+ 256GB Jet Black"
+//   };
+
+// 6s models
+// var modelList={
+//  "MKQJ2J/A" : "6s 16GB Gray",
+//  "MKQK2J/A" : "6s 16GB Silver",
+//  "MKQL2J/A" : "6s 16GB Gold",
+//  "MKQM2J/A" : "6s 16GB Rose Gold",
+//  "MKQN2J/A" : "6s 64GB Gray",
+//  "MKQP2J/A" : "6s 64GB Silver",
+//  "MKQQ2J/A" : "6s 64GB Gold",
+//  "MKQR2J/A" : "6s 64GB Rose Gold",
+//  "MKQT2J/A" : "6s 128GB Gray",
+//  "MKQU2J/A" : "6s 128GB Silver",
+//  "MKQV2J/A" : "6s 128GB Gold",
+//  "MKQW2J/A" : "6s 128GB Rose Gold",
+//  "MKU12J/A" : "6s+ 16GB Gray",
+//  "MKU22J/A" : "6s+ 16GB Silver",
+//  "MKU32J/A" : "6s+ 16GB Gold",
+//  "MKU52J/A" : "6s+ 16GB Rose Gold",
+//  "MKU62J/A" : "6s+ 64GB Gray",
+//  "MKU72J/A" : "6s+ 64GB Silver",
+//  "MKU82J/A" : "6s+ 64GB Gold",
+//  "MKU92J/A" : "6s+ 64GB Rose Gold",
+//  "MKUD2J/A" : "6s+ 128GB Gray",
+//  "MKUE2J/A" : "6s+ 128GB Silver",
+//  "MKUF2J/A" : "6s+ 128GB Gold",
+//  "MKUG2J/A" : "6s+ 128GB Rose Gold"
+// };
+
+// 6 models
 //   var modelList={
 //    "MG472J/A" : "6 16GB Gray",
 //    "MG482J/A" : "6 16GB Silver",
@@ -21,79 +94,10 @@ $(function () {
 //    "MGAF2J/A" : "6+ 128GB Gold"
 //   };
 
-  // 6s models
-  // var modelList={
-  //  "MKQJ2J/A" : "6s 16GB Gray",
-  //  "MKQK2J/A" : "6s 16GB Silver",
-  //  "MKQL2J/A" : "6s 16GB Gold",
-  //  "MKQM2J/A" : "6s 16GB Rose Gold",
-  //  "MKQN2J/A" : "6s 64GB Gray",
-  //  "MKQP2J/A" : "6s 64GB Silver",
-  //  "MKQQ2J/A" : "6s 64GB Gold",
-  //  "MKQR2J/A" : "6s 64GB Rose Gold",
-  //  "MKQT2J/A" : "6s 128GB Gray",
-  //  "MKQU2J/A" : "6s 128GB Silver",
-  //  "MKQV2J/A" : "6s 128GB Gold",
-  //  "MKQW2J/A" : "6s 128GB Rose Gold",
-  //  "MKU12J/A" : "6s+ 16GB Gray",
-  //  "MKU22J/A" : "6s+ 16GB Silver",
-  //  "MKU32J/A" : "6s+ 16GB Gold",
-  //  "MKU52J/A" : "6s+ 16GB Rose Gold",
-  //  "MKU62J/A" : "6s+ 64GB Gray",
-  //  "MKU72J/A" : "6s+ 64GB Silver",
-  //  "MKU82J/A" : "6s+ 64GB Gold",
-  //  "MKU92J/A" : "6s+ 64GB Rose Gold",
-  //  "MKUD2J/A" : "6s+ 128GB Gray",
-  //  "MKUE2J/A" : "6s+ 128GB Silver",
-  //  "MKUF2J/A" : "6s+ 128GB Gold",
-  //  "MKUG2J/A" : "6s+ 128GB Rose Gold"
-  // };
-
-  // 7 models
-  var modelList={
-	"MNCF2J/A" : "7 32GB Silver",
-	"MNCG2J/A" : "7 32GB Gold",
-	"MNCJ2J/A" : "7 32GB Rose Gold",
-	"MNCE2J/A" : "7 32GB Black",
-
-	"MNCL2J/A" : "7 128GB Silver",
-	"MNCM2J/A" : "7 128GB Gold",
-	"MNCN2J/A" : "7 128GB Rose Gold",
-	"MNCK2J/A" : "7 128GB Black",
-	"MNCP2J/A" : "7 128GB Jet Black",
-
-	"MNCR2J/A" : "7 256GB Silver",
-	"MNCT2J/A" : "7 256GB Gold",
-	"MNCU2J/A" : "7 256GB Rose Gold",
-	"MNCQ2J/A" : "7 256GB Black",
-	"MNCV2J/A" : "7 256GB Jet Black",
-
-	"MNRA2J/A" : "7+ 32GB Silver",
-	"MNRC2J/A" : "7+ 32GB Gold",
-	"MNRD2J/A" : "7+ 32GB Rose Gold",
-	"MNR92J/A" : "7+ 32GB Black",
-
-	"MN6G2J/A" : "7+ 128GB Silver",
-	"MN6H2J/A" : "7+ 128GB Gold",
-	"MN6J2J/A" : "7+ 128GB Rose Gold",
-	"MN6F2J/A" : "7+ 128GB Black",
-	"MN6K2J/A" : "7+ 128GB Jet Black",
-
-	"MN6M2J/A" : "7+ 256GB Silver",
-	"MN6N2J/A" : "7+ 256GB Gold",
-	"MN6P2J/A" : "7+ 256GB Rose Gold",
-	"MN6L2J/A" : "7+ 256GB Black",
-	"MN6Q2J/A" : "7+ 256GB Jet Black"
-  };
-
-  var shopList={
-  "R119": "Shibuya",
-  "R224": "Omotesando",
-  "R079": "Ginza"
-  };
+  var shopList={};
 
   function getStoreData() {
-    var url = 'https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone/stores.json';
+    var url = 'https://reserve-prime.apple.com/JP/ja_JP/reserve/iPhoneX/stores.json';
     // get json data
     $.ajax({
       url: "https://query.yahooapis.com/v1/public/yql?"+ "q=select%20*%20from%20json%20where%20url%3D%22"+ encodeURIComponent(url)+ "%22&format=json",
@@ -123,7 +127,7 @@ $(function () {
   }
 
   function getStockData() {
-    var url = 'https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone/availability.json';
+    var url = 'https://reserve-prime.apple.com/JP/ja_JP/reserve/iPhoneX/availability.json';
 
     // get json data
     $.ajax({
@@ -274,10 +278,13 @@ $(function () {
       var shopCode = codes[0];
       var modelCode = codes[1];
       // console.log(data[shopCode]);
-      var flag = data[shopCode][modelCode];
+      var flag = data["stores"][shopCode][modelCode]["availability"]["contract"];
+      if (flag != "true") {
+        flag = data["stores"][shopCode][modelCode]["availability"]["unlocked"];
+      }
       // console.log(flag);
       //if (flag == true || flag == 'true') {
-      if (flag == "ALL") {
+      if (flag == "true") {
         // console.log('true!');
         var log = $('#time').text() + " [" + shopList[shopCode] + " " + modelList[modelCode.replace(/_/, '/')] + "] is in stock\n";
         $("#logtext").html($("#logtext").html() + log);
@@ -357,7 +364,7 @@ $(function () {
     for (var shopCode in shopList) {
       // string = string + "<h3>" + shopList[shopCode] + "</h3>";
       $("#table thead").append('<th style="width:10.5%;" data-shopcode="' + shopCode + '">'+shopList[shopCode]+'</th>');
-      var stockInfo = data[shopCode];
+      var stockInfo = data["stores"][shopCode];
       for (var model in modelList) {
         if (!trs[model]) {
           trs[model] = new Array();
@@ -368,7 +375,7 @@ $(function () {
           check = stockInfo[model.replace("/","_")];
         }
         //if (check == true || check == "true") {
-        if (check == "ALL") {
+        if (check["availability"]["contract"] == "true" || check["availability"]["unlocked"] == "true") {
           // string = string + "<p>" + modelList[model] + ": OK</p>";
           trs[model].push('<td class="success"><span class="glyphicon glyphicon-ok"></span></td>');
         }

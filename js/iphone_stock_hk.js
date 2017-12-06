@@ -1,4 +1,48 @@
 $(function () {
+  // X models
+  var modelList={
+	"MQA52ZP/A" : "X 64GB Space Gray",
+	"MQA62ZP/A" : "X 64GB Silver",
+	"MQA82ZP/A" : "X 256GB Space Gray",
+	"MQA92ZP/A" : "X 256GB Silver"
+  };
+//   // 7 models
+//   var modelList={
+//     "MN8H2ZP/A" : "7 32GB Silver",
+//     "MN8J2ZP/A" : "7 32GB Gold",
+//     "MN8K2ZP/A" : "7 32GB Rose Gold",
+//     "MN8G2ZP/A" : "7 32GB Black",
+// 
+//     "MN8M2ZP/A" : "7 128GB Silver",
+//     "MN8N2ZP/A" : "7 128GB Gold",
+//     "MN8P2ZP/A" : "7 128GB Rose Gold",
+//     "MN8L2ZP/A" : "7 128GB Black",
+//     "MN8Q2ZP/A" : "7 128GB Jet Black",
+// 
+//     "MN8T2ZP/A" : "7 256GB Silver",
+//     "MN8U2ZP/A" : "7 256GB Gold",
+//     "MN8V2ZP/A" : "7 256GB Rose Gold",
+//     "MN8R2ZP/A" : "7 256GB Black",
+//     "MN8W2ZP/A" : "7 256GB Jet Black",
+// 
+//     "MNQJ2ZP/A" : "7+ 32GB Silver",
+//     "MNQK2ZP/A" : "7+ 32GB Gold",
+//     "MNQL2ZP/A" : "7+ 32GB Rose Gold",
+//     "MNQH2ZP/A" : "7+ 32GB Black",
+// 
+//     "MN492ZP/A" : "7+ 128GB Silver",
+//     "MN4A2ZP/A" : "7+ 128GB Gold",
+//     "MN4C2ZP/A" : "7+ 128GB Rose Gold",
+//     "MN482ZP/A" : "7+ 128GB Black",
+//     "MN4D2ZP/A" : "7+ 128GB Jet Black",
+// 
+//     "MN4F2ZP/A" : "7+ 256GB Silver",
+//     "MN4J2ZP/A" : "7+ 256GB Gold",
+//     "MN4K2ZP/A" : "7+ 256GB Rose Gold",
+//     "MN4E2ZP/A" : "7+ 256GB Black",
+//     "MN4L2ZP/A" : "7+ 256GB Jet Black"
+//   }
+
   // 6 models
   // var modelList={
   //   "MG472ZP/A" : "6 16GB Gray",
@@ -49,43 +93,6 @@ $(function () {
   //  "MKUG2ZP/A" : "6s+ 128GB Rose Gold"
   // };
 
-  // 7 models
-  var modelList={
-    "MN8H2ZP/A" : "7 32GB Silver",
-    "MN8J2ZP/A" : "7 32GB Gold",
-    "MN8K2ZP/A" : "7 32GB Rose Gold",
-    "MN8G2ZP/A" : "7 32GB Black",
-
-    "MN8M2ZP/A" : "7 128GB Silver",
-    "MN8N2ZP/A" : "7 128GB Gold",
-    "MN8P2ZP/A" : "7 128GB Rose Gold",
-    "MN8L2ZP/A" : "7 128GB Black",
-    "MN8Q2ZP/A" : "7 128GB Jet Black",
-
-    "MN8T2ZP/A" : "7 256GB Silver",
-    "MN8U2ZP/A" : "7 256GB Gold",
-    "MN8V2ZP/A" : "7 256GB Rose Gold",
-    "MN8R2ZP/A" : "7 256GB Black",
-    "MN8W2ZP/A" : "7 256GB Jet Black",
-
-    "MNQJ2ZP/A" : "7+ 32GB Silver",
-    "MNQK2ZP/A" : "7+ 32GB Gold",
-    "MNQL2ZP/A" : "7+ 32GB Rose Gold",
-    "MNQH2ZP/A" : "7+ 32GB Black",
-
-    "MN492ZP/A" : "7+ 128GB Silver",
-    "MN4A2ZP/A" : "7+ 128GB Gold",
-    "MN4C2ZP/A" : "7+ 128GB Rose Gold",
-    "MN482ZP/A" : "7+ 128GB Black",
-    "MN4D2ZP/A" : "7+ 128GB Jet Black",
-
-    "MN4F2ZP/A" : "7+ 256GB Silver",
-    "MN4J2ZP/A" : "7+ 256GB Gold",
-    "MN4K2ZP/A" : "7+ 256GB Rose Gold",
-    "MN4E2ZP/A" : "7+ 256GB Black",
-    "MN4L2ZP/A" : "7+ 256GB Jet Black"
-  }
-
   var shopList={
   // "R499": "Canton Road",
   // "R409": "Causeway Bay",
@@ -93,7 +100,7 @@ $(function () {
   };
 
   function getStoreData() {
-    var url = 'https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/stores.json';
+    var url = 'https://reserve-prime.apple.com/HK/en_HK/reserve/iPhoneX/stores.json';
     // get json data
     $.ajax({
       url: "https://query.yahooapis.com/v1/public/yql?"+ "q=select%20*%20from%20json%20where%20url%3D%22"+ encodeURIComponent(url)+ "%22&format=json",
@@ -123,7 +130,7 @@ $(function () {
   }
 
   function getStockData() {
-    var url = 'https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability.json';
+    var url = 'https://reserve-prime.apple.com/HK/en_HK/reserve/iPhoneX/availability.json';
 
     // get json data
     $.ajax({
@@ -273,10 +280,13 @@ $(function () {
       var shopCode = codes[0];
       var modelCode = codes[1];
       // console.log(data[shopCode]);
-      var flag = data[shopCode][modelCode];
+      var flag = data["stores"][shopCode][modelCode]["availability"]["contract"];
+      if (flag != "true") {
+        flag = data["stores"][shopCode][modelCode]["availability"]["unlocked"];
+      }
       // console.log(flag);
       //if (flag == true || flag == 'true') {
-      if (flag == "ALL") {
+      if (flag == "true") {
         // console.log('true!');
         var log = $('#time').text() + " [" + shopList[shopCode] + " " + modelList[modelCode.replace(/_/, '/')] + "] is in stock\n";
         $("#logtext").html($("#logtext").html() + log);
@@ -355,8 +365,8 @@ $(function () {
 
     for (var shopCode in shopList) {
       // string = string + "<h3>" + shopList[shopCode] + "</h3>";
-      $("#table thead").append('<th style="width:20.5%;" data-shopcode="' + shopCode + '">'+shopList[shopCode]+'</th>');
-      var stockInfo = data[shopCode];
+      $("#table thead").append('<th style="width:12.5%;" data-shopcode="' + shopCode + '">'+shopList[shopCode]+'</th>');
+      var stockInfo = data["stores"][shopCode];
       for (var model in modelList) {
         if (!trs[model]) {
           trs[model] = new Array();
@@ -367,7 +377,7 @@ $(function () {
           check = stockInfo[model.replace("/","_")];
         }
         //if (check == true || check == "true") {
-        if (check == "ALL") {
+        if (check["availability"]["contract"] == "true" || check["availability"]["unlocked"] == "true") {
           // string = string + "<p>" + modelList[model] + ": OK</p>";
           trs[model].push('<td class="success"><span class="glyphicon glyphicon-ok"></span></td>');
         }
