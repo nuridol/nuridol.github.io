@@ -1,11 +1,34 @@
 $(function () {
-  // X models
+  // Xs models
   var modelList={
-	"MQA52ZP/A" : "X 64GB Space Gray",
-	"MQA62ZP/A" : "X 64GB Silver",
-	"MQA82ZP/A" : "X 256GB Space Gray",
-	"MQA92ZP/A" : "X 256GB Silver"
+  "MT952ZA/A" : "Xs 64GB Silver",
+  "MT982ZA/A" : "Xs 256GB Silver",
+  "MT9C2ZA/A" : "Xs 512GB Silver",
+  "MT942ZA/A" : "Xs 64GB Space Gray",
+  "MT972ZA/A" : "Xs 256GB Space Gray",
+  "MT9A2ZA/A" : "Xs 512GB Space Gray",
+  "MT962ZA/A" : "Xs 64GB Gold",
+  "MT992ZA/A" : "Xs 256GB Gold",
+  "MT9D2ZA/A" : "Xs 512GB Gold",
+
+  "MT722ZA/A" : "Xs Max 64GB Silver",
+  "MT752ZA/A" : "Xs Max 256GB Silver",
+  "MT782ZA/A" : "Xs Max 512GB Silver",
+  "MT712ZA/A" : "Xs Max 64GB Space Gray",
+  "MT742ZA/A" : "Xs Max 256GB Space Gray",
+  "MT772ZA/A" : "Xs Max 512GB Space Gray",
+  "MT732ZA/A" : "Xs Max 64GB Gold",
+  "MT762ZA/A" : "Xs Max 256GB Gold",
+  "MT792ZA/A" : "Xs Max 512GB Gold"
   };
+
+ //  // X models
+ //  var modelList={
+	// "MQA52ZP/A" : "X 64GB Space Gray",
+	// "MQA62ZP/A" : "X 64GB Silver",
+	// "MQA82ZP/A" : "X 256GB Space Gray",
+	// "MQA92ZP/A" : "X 256GB Silver"
+ //  };
 //   // 7 models
 //   var modelList={
 //     "MN8H2ZP/A" : "7 32GB Silver",
@@ -100,7 +123,7 @@ $(function () {
   };
 
   function getStoreData() {
-    var url = 'https://reserve-prime.apple.com/HK/en_HK/reserve/iPhoneX/stores.json';
+    var url = 'https://reserve-prime.apple.com/HK/en_HK/reserve/iPhone/stores.json';
     // get json data
     $.ajax({
       url: "https://query.yahooapis.com/v1/public/yql?"+ "q=select%20*%20from%20json%20where%20url%3D%22"+ encodeURIComponent(url)+ "%22&format=json",
@@ -130,7 +153,7 @@ $(function () {
   }
 
   function getStockData() {
-    var url = 'https://reserve-prime.apple.com/HK/en_HK/reserve/iPhoneX/availability.json';
+    var url = 'https://reserve-prime.apple.com/HK/en_HK/reserve/iPhone/availability.json';
 
     // get json data
     $.ajax({
@@ -147,7 +170,7 @@ $(function () {
       cache: false,
       success: function(data) {
         clearTable();
-        if (!data.query.results) {
+        if (!data.query.results || !data.query.results.json["stores"]) {
           $("#time").html("No data. Try later.");
           return;
         }

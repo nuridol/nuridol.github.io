@@ -10,9 +10,10 @@ $(function () {
     url = url.replace("//mobile.twitter.", "//twitter.");
 
     // get json data
+    encodedStr = encodeURIComponent("select * from htmlstring where url=\"" + url + "\" and xpath='//div[contains(@class,\"AdaptiveMedia\")]/img | //div[contains(@class,\"media\")]/img'");
 
     $.getJSON(
-      "https://query.yahooapis.com/v1/public/yql?"+ "q=select%20*%20from%20htmlstring%20where%20url%3D%22"+ encodeURIComponent(url)+ "%22%20and%20xpath=%27//div[contains%28@class,%22AdaptiveMedia%22%29]/img%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=", function(data) {
+      "https://query.yahooapis.com/v1/public/yql?q="+ encodedStr + "&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=", function(data) {
       if (!data.query.results || !data.query.results.result) {
         $("#picList").html('<div class="alert alert-danger" role="alert">No data. Try later.</div>');
         return;
@@ -30,9 +31,11 @@ $(function () {
       return;
     }
 
-    // console.log(url);
+    url = url.replace(/:\w*$/, '');
+    //console.log(url);
     var origSrc = url + ":orig";
-    var downUrl = url.replace(/^.*\/|.org$/, '');
+    var downUrl = url.replace(/^.*\/|\.\w*$/g, '');
+
     var element = '<div class="col-xs-6 col-md-3"><a href="' + origSrc + '" class="thumbnail" download="' + downUrl + '"><img src="'+ origSrc + '"></a></div>';
     $('#picList').append(element);
   }
