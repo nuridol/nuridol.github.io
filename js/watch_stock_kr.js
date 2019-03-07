@@ -1,126 +1,85 @@
 $(function () {
-  // Xs models
-  var modelList={
-  "MT952ZA/A" : "Xs 64GB Silver",
-  "MT982ZA/A" : "Xs 256GB Silver",
-  "MT9C2ZA/A" : "Xs 512GB Silver",
-  "MT942ZA/A" : "Xs 64GB Space Gray",
-  "MT972ZA/A" : "Xs 256GB Space Gray",
-  "MT9A2ZA/A" : "Xs 512GB Space Gray",
-  "MT962ZA/A" : "Xs 64GB Gold",
-  "MT992ZA/A" : "Xs 256GB Gold",
-  "MT9D2ZA/A" : "Xs 512GB Gold",
+  // watch models
+  var modelList = {
+    "MU642KH/A": "GPS/40/S/White Band",
+    "MU6A2KH/A": "GPS/44/S/White Band",
+    "MU662KH/A": "GPS/40/SG/Black Band",
+    "MU6D2KH/A": "GPS/44/SG/Black Band",
+    "MU682KH/A": "GPS/40/G/Pink Sand Band",
+    "MU6F2KH/A": "GPS/44/G/Pink Sand Band",
 
-  "MT722ZA/A" : "Xs Max 64GB Silver",
-  "MT752ZA/A" : "Xs Max 256GB Silver",
-  "MT782ZA/A" : "Xs Max 512GB Silver",
-  "MT712ZA/A" : "Xs Max 64GB Space Gray",
-  "MT742ZA/A" : "Xs Max 256GB Space Gray",
-  "MT772ZA/A" : "Xs Max 512GB Space Gray",
-  "MT732ZA/A" : "Xs Max 64GB Gold",
-  "MT762ZA/A" : "Xs Max 256GB Gold",
-  "MT792ZA/A" : "Xs Max 512GB Gold"
+    "MU652KH/A": "GPS/40/S/Seashell Loop",
+    "MU6C2KH/A": "GPS/44/S/Seashell Loop",
+    "MU672KH/A": "GPS/40/SG/Black Loop",
+    "MU6E2KH/A": "GPS/44/SG/Black Loop",
+    "MU692KH/A": "GPS/40/G/Pink Sand Loop",
+    "MU6G2KH/A": "GPS/44/G/Pink Sand Loop",
+
+    "MTVA2KH/A": "Cellular/40/S/White Band",
+    "MTVR2KH/A": "Cellular/44/S/White Band",
+    "MTVD2KH/A": "Cellular/40/SG/Black Band",
+    "MTVU2KH/A": "Cellular/44/SG/Black Band",
+    "MTVG2KH/A": "Cellular/40/G/Pink Sand Band",
+    "MTVW2KH/A": "Cellular/44/G/Pink Sand Band",
+
+    "MTVC2KH/A": "Cellular/40/S/Seashell Loop",
+    "MTVT2KH/A": "Cellular/44/S/Seashell Loop",
+    "MTVF2KH/A": "Cellular/40/SG/Black Loop",
+    "MTVV2KH/A": "Cellular/44/SG/Black Loop",
+    "MTVH2KH/A": "Cellular/40/G/Pink Sand Loop",
+    "MTVX2KH/A": "Cellular/44/G/Pink Sand Loop",
+
+    "MTVJ2KH/A": "Cellular/40/Steel/White Band",
+    "MTX02KH/A": "Cellular/44/Steel/White Band",
+    "MTVL2KH/A": "Cellular/40/SB Steel/Black Band",
+    "MTX22KH/A": "Cellular/44/SB Steel/Black Band",
+    "MTVN2KH/A": "Cellular/40/Gold Steel/Stone Band",
+    "MTX42KH/A": "Cellular/44/Gold Steel/Stone Band",
+
+    "MTVK2KH/A": "Cellular/40/Steel/Milanese Loop",
+    "MTX12KH/A": "Cellular/44/Steel/Milanese Loop",
+    "MTVM2KH/A": "Cellular/40/SB Steel/SB Milanese Loop",
+    "MTX32KH/A": "Cellular/44/SB Steel/SB Milanese Loop",
+    "MTVQ2KH/A": "Cellular/40/Gold Steel/Gold Milanese Loop",
+    "MTX52KH/A": "Cellular/44/Gold Steel/Gold Milanese Loop",
+
+
+    "MU6H2KH/A": "Nike+ GPS/40/S/Pure Platinum Black Band",
+    "MU6K2KH/A": "Nike+ GPS/44/S/Pure Platinum Black Band",
+    "MU6J2KH/A": "Nike+ GPS/40/SG/Anthracite Black Band",
+    "MU6L2KH/A": "Nike+ GPS/44/SG/Anthracite Black Band",
+
+    "MU7F2KH/A": "Nike+ GPS/40/S/Summit White Loop",
+    "MU7H2KH/A": "Nike+ GPS/44/S/Summit White Loop",
+    "MU7G2KH/A": "Nike+ GPS/40/SG/Black Loop",
+    "MU7J2KH/A": "Nike+ GPS/44/SG/Black Loop",
+
+    "MTX62KH/A": "Nike+ Cellular/40/S/Pure Platinum Black Band",
+    "MTXK2KH/A": "Nike+ Cellular/44/S/Pure Platinum Black Band",
+    "MTXG2KH/A": "Nike+ Cellular/40/SG/Anthracite Black Band",
+    "MTXM2KH/A": "Nike+ Cellular/44/SG/Anthracite Black Band",
+
+    "MTXF2KH/A": "Nike+ Cellular/40/S/Summit White Loop",
+    "MTXJ2KH/A": "Nike+ Cellular/44/S/Summit White Loop",
+    "MTXH2KH/A": "Nike+ Cellular/40/SG/Black Loop",
+    "MTXL2KH/A": "Nike+ Cellular/44/SG/Black Loop",
+
+
+    "MU7L2KH/A": "Hermès/40/Indigo Craie Orange Double Tour",
+    "MU732KH/A": "Hermès/40/Bordeaux Rose Extrême Rose Azalée Double Tour",
+    "MU722KH/A": "Hermès/40/Bleu Indigo Double Tour",
+    "MU712KH/A": "Hermès/40/Fauve Barenia Double Tour",
+    "MU782KH/A": "Hermès/44/Indigo Craie Orange Single Tour",
+    "MU702KH/A": "Hermès/40/Bordeaux Rose Extrême Rose Azalée Single Tour",
+    "MU772KH/A": "Hermès/44/Bleu Indigo Single Tour",
+    "MU6Y2KH/A": "Hermès/40/Fauve Barenia Single Tour",
+    "MU762KH/A": "Hermès/44/Fauve Barenia Single Tour",
+    "MU9E2KH/A": "Hermès/44/Fauve Grained Barenia Rallye",
+    "MU742KH/A": "Hermès/44/Fauve Barenia Buckle",
+    "MU752KH/A": "Hermès/44/Ébène Barenia Buckle"
   };
 
- //  // X models
- //  var modelList={
-	// "MQA52ZP/A" : "X 64GB Space Gray",
-	// "MQA62ZP/A" : "X 64GB Silver",
-	// "MQA82ZP/A" : "X 256GB Space Gray",
-	// "MQA92ZP/A" : "X 256GB Silver"
- //  };
-//   // 7 models
-//   var modelList={
-//     "MN8H2ZP/A" : "7 32GB Silver",
-//     "MN8J2ZP/A" : "7 32GB Gold",
-//     "MN8K2ZP/A" : "7 32GB Rose Gold",
-//     "MN8G2ZP/A" : "7 32GB Black",
-// 
-//     "MN8M2ZP/A" : "7 128GB Silver",
-//     "MN8N2ZP/A" : "7 128GB Gold",
-//     "MN8P2ZP/A" : "7 128GB Rose Gold",
-//     "MN8L2ZP/A" : "7 128GB Black",
-//     "MN8Q2ZP/A" : "7 128GB Jet Black",
-// 
-//     "MN8T2ZP/A" : "7 256GB Silver",
-//     "MN8U2ZP/A" : "7 256GB Gold",
-//     "MN8V2ZP/A" : "7 256GB Rose Gold",
-//     "MN8R2ZP/A" : "7 256GB Black",
-//     "MN8W2ZP/A" : "7 256GB Jet Black",
-// 
-//     "MNQJ2ZP/A" : "7+ 32GB Silver",
-//     "MNQK2ZP/A" : "7+ 32GB Gold",
-//     "MNQL2ZP/A" : "7+ 32GB Rose Gold",
-//     "MNQH2ZP/A" : "7+ 32GB Black",
-// 
-//     "MN492ZP/A" : "7+ 128GB Silver",
-//     "MN4A2ZP/A" : "7+ 128GB Gold",
-//     "MN4C2ZP/A" : "7+ 128GB Rose Gold",
-//     "MN482ZP/A" : "7+ 128GB Black",
-//     "MN4D2ZP/A" : "7+ 128GB Jet Black",
-// 
-//     "MN4F2ZP/A" : "7+ 256GB Silver",
-//     "MN4J2ZP/A" : "7+ 256GB Gold",
-//     "MN4K2ZP/A" : "7+ 256GB Rose Gold",
-//     "MN4E2ZP/A" : "7+ 256GB Black",
-//     "MN4L2ZP/A" : "7+ 256GB Jet Black"
-//   }
-
-  // 6 models
-  // var modelList={
-  //   "MG472ZP/A" : "6 16GB Gray",
-  //   "MG4H2ZP/A" : "6 16GB Silver",
-  //   "MG492ZP/A" : "6 16GB Gold",
-  //   "MG4F2ZP/A" : "6 64GB Gray",
-  //   "MG482ZP/A" : "6 64GB Silver",
-  //   "MG4J2ZP/A" : "6 64GB Gold",
-  //   "MG4A2ZP/A" : "6 128GB Gray",
-  //   "MG4C2ZP/A" : "6 128GB Silver",
-  //   "MG4E2ZP/A" : "6 128GB Gold",
-  //   "MGA82ZP/A" : "6+ 16GB Gray",
-  //   "MGA92ZP/A" : "6+ 16GB Silver",
-  //   "MGAA2ZP/A" : "6+ 16GB Gold",
-  //   "MGAH2ZP/A" : "6+ 64GB Gray",
-  //   "MGAJ2ZP/A" : "6+ 64GB Silver",
-  //   "MGAK2ZP/A" : "6+ 64GB Gold",
-  //   "MGAC2ZP/A" : "6+ 128GB Gray",
-  //   "MGAE2ZP/A" : "6+ 128GB Silver",
-  //   "MGAF2ZP/A" : "6+ 128GB Gold"
-  // };
-
-  // 6s models
-  // var modelList={
-  //  "MKQJ2ZP/A" : "6s 16GB Gray",
-  //  "MKQK2ZP/A" : "6s 16GB Silver",
-  //  "MKQL2ZP/A" : "6s 16GB Gold",
-  //  "MKQM2ZP/A" : "6s 16GB Rose Gold",
-  //  "MKQN2ZP/A" : "6s 64GB Gray",
-  //  "MKQP2ZP/A" : "6s 64GB Silver",
-  //  "MKQQ2ZP/A" : "6s 64GB Gold",
-  //  "MKQR2ZP/A" : "6s 64GB Rose Gold",
-  //  "MKQUZP/A" : "6s 128GB Gray",
-  //  "MKQT2ZP/A" : "6s 128GB Silver",
-  //  "MKQV2ZP/A" : "6s 128GB Gold",
-  //  "MKQW2ZP/A" : "6s 128GB Rose Gold",
-  //  "MKU12ZP/A" : "6s+ 16GB Gray",
-  //  "MKU22ZP/A" : "6s+ 16GB Silver",
-  //  "MKU32ZP/A" : "6s+ 16GB Gold",
-  //  "MKU52ZP/A" : "6s+ 16GB Rose Gold",
-  //  "MKU62ZP/A" : "6s+ 64GB Gray",
-  //  "MKU72ZP/A" : "6s+ 64GB Silver",
-  //  "MKU82ZP/A" : "6s+ 64GB Gold",
-  //  "MKU92ZP/A" : "6s+ 64GB Rose Gold",
-  //  "MKUD2ZP/A" : "6s+ 128GB Gray",
-  //  "MKUE2ZP/A" : "6s+ 128GB Silver",
-  //  "MKUF2ZP/A" : "6s+ 128GB Gold",
-  //  "MKUG2ZP/A" : "6s+ 128GB Rose Gold"
-  // };
-
-  var shopList={
-  // "R499": "Canton Road",
-  // "R409": "Causeway Bay",
-  // "R485": "Festival Walk"
-  };
+  var shopList = {};
 
   function getModelListUrl() {
     var url = "";
@@ -132,8 +91,58 @@ $(function () {
     return url;
   }
 
+  function getPickupData2(preData) {
+    var url = 'https://www.apple.com/kr/shop/retail/pickup-message?pl=true&searchNearby=true&store=R692' + getModelListUrl();
+    // get json data
+    $.ajax({
+      url: 'proxy.php?csurl=' + encodeURIComponent(url),
+      //url: "pickup.json",
+      beforeSend: function (xhr) {
+        if (xhr.overrideMimeType) {
+          xhr.overrideMimeType("application/json");
+        }
+      },
+      dataType: 'json',
+      async: true,
+      cache: false,
+      success: function (data) {
+        if (!data.body || !data.body.stores) {
+          $("#time").html("No data. Try later.");
+          return;
+        }
+        stockData = preData;
+        var stores = data.body["stores"];
+        if (!stores) {
+          $("#time").html("No data. Try later.");
+          return;
+        }
+        for (var index in stores) {
+            var store = stores[index];
+            //var store = stores;
+            var storeCode = store["storeNumber"];
+            shopList[storeCode] = store["storeName"];
+            if (!stockData["stores"]) {
+              stockData["stores"] = {};
+            }
+            if (!stockData["stores"][storeCode]) {
+              stockData["stores"][storeCode] = {};
+            }
+            for (var modelId in store["partsAvailability"]) {
+              var flag = store["partsAvailability"][modelId]["pickupDisplay"] == "available" ? "true" : "false";
+              stockData["stores"][storeCode][modelId] = { "availability": { "contract": flag, "unlocked": flag } };
+            }
+        }
+        drawWatchList();
+        clearTable();
+        drawTable(stockData);
+        checkStockData(stockData);
+      },
+      error: function (e) { alert("error!" + e.statusText); return; }
+    });
+  }
+
   function getPickupData() {
-    var url = 'https://www.apple.com/hk/shop/retail/pickup-message?pl=true&searchNearby=true&store=R499' + getModelListUrl();
+    var url = 'https://www.apple.com/kr/shop/retail/pickup-message?pl=true&searchNearby=true&store=R692' + getModelListUrl();
     // get json data
     $.ajax({
       url: 'proxy.php?csurl=' + encodeURIComponent(url),
@@ -159,6 +168,8 @@ $(function () {
         }
         for (var index in stores) {
           var store = stores[index];
+          //var store = stores;
+          console.log(store);
           var storeCode = store["storeNumber"];
           shopList[storeCode] = store["storeName"];
           if (!stockData["stores"]) {
@@ -172,6 +183,7 @@ $(function () {
             stockData["stores"][storeCode][modelId] = { "availability": { "contract": flag, "unlocked": flag } };
           }
         }
+        //getPickupData2(stockData);
         drawWatchList();
         clearTable();
         drawTable(stockData);
@@ -184,10 +196,11 @@ $(function () {
   function getStoreData() {
     getPickupData();
     return;
-//     var url = 'https://www.apple.com/hk/shop/retail/pickup-message?pl=false&searchNearby=false&parts.0=MT952ZA/A&store=R499';
+
+//     var url = 'https://www.apple.com/kr/shop/retail/pickup-message?pl=false&searchNearby=true&parts.0=MTVA2KH%2FA&store=R692';
 //     // get json data
 //     $.ajax({
-//       url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
+//       url: url,
 //       beforeSend: function (xhr) {
 //         if (xhr.overrideMimeType) {
 //           xhr.overrideMimeType("application/json");
@@ -197,89 +210,18 @@ $(function () {
 //       async: true,
 //       cache: false,
 //       success: function (data) {
-//         if (!data.query.results || !data.query.results.json) {
+//         if (!data.body || !data.body.stores) {
 //           $("#time").html("No data. Try later.");
 //           return;
 //         }
 //         // 2017 - now
-//         if (!data.query.results.json["stores"]) {
+//         if (!data.body["stores"]) {
 //           getPickupData();
 //           return;
 //         }
-// //         // legacy way
-// //         for (var index in data.query.results.json["stores"]) {
-// //           var store = data.query.results.json["stores"][index];
-// //           shopList[store["storeNumber"]] = store["storeName"];
-// //         }
-// //         drawWatchList();
-// //         getStockData();
 //       },
 //       error: function (e) { alert("error!" + e.statusText); return; }
 //     });
-  }
-
-  // function getStoreDataLegacy() {
-  //   var url = 'https://reserve-prime.apple.com/JP/ja_JP/reserve/iPhoneX/stores.json';
-  //   // get json data
-  //   $.ajax({
-  //     url: "https://query.yahooapis.com/v1/public/yql?"+ "q=select%20*%20from%20json%20where%20url%3D%22"+ encodeURIComponent(url)+ "%22&format=json",
-  //     beforeSend: function(xhr){
-  //       if (xhr.overrideMimeType)
-  //       {
-  //         xhr.overrideMimeType("application/json");
-  //       }
-  //     },
-  //     dataType: 'json',
-  //     async: true,
-  //     cache: false,
-  //     success: function(data) {
-  //       if (!data.query.results || !data.query.results.json) {
-  //         $("#time").html("No data. Try later.");
-  //         return;
-  //       }
-  //       if (!data.query.results.json["stores"]) {
-  //         getPickupData();
-  //         return;
-  //       }
-  //       for (var index in data.query.results.json["stores"]) {
-  //         var store = data.query.results.json["stores"][index];
-  //         shopList[store["storeNumber"]] = store["storeName"];
-  //       }
-  //       drawWatchList();
-  //       getStockData();
-  //     },
-  //     error: function(e) { alert("error!" + e.statusText); return; }
-  //   });
-  // }
-
-  function getStockData() {
-    var url = 'https://reserve-prime.apple.com/JP/ja_JP/reserve/iPhoneX/availability.json';
-
-    // get json data
-    $.ajax({
-      url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
-      //url: "stock.json",
-      beforeSend: function (xhr) {
-        if (xhr.overrideMimeType) {
-          xhr.overrideMimeType("application/json");
-        }
-      },
-      dataType: 'json',
-      async: true,
-      cache: false,
-      success: function (data) {
-        clearTable();
-        if (!data.query.results) {
-          $("#time").html("No data. Try later.");
-          return;
-        }
-        //alert(data);
-        drawTable(data.query.results.json);
-        checkStockData(data.query.results.json);
-      },
-      error: function (e) { alert("error!" + e.statusText); return; }
-    });
-
   }
 
   function unixdateformat(str) {

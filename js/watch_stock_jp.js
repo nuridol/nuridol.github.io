@@ -95,7 +95,7 @@ $(function () {
     var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=true&searchNearby=true&store=R048' + getModelListUrl();
     // get json data
     $.ajax({
-      url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
+      url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {
@@ -106,32 +106,32 @@ $(function () {
       async: true,
       cache: false,
       success: function (data) {
-        if (!data.query.results || !data.query.results.json) {
+        if (!data.body || !data.body.stores) {
           $("#time").html("No data. Try later.");
           return;
         }
         stockData = preData;
-        var stores = data.query.results.json.body["stores"];
+        var stores = data.body["stores"];
         if (!stores) {
           $("#time").html("No data. Try later.");
           return;
         }
-        //        for (var index in stores) {
-        //var store = stores[index];
-        var store = stores;
-        var storeCode = store["storeNumber"];
-        shopList[storeCode] = store["storeName"];
-        if (!stockData["stores"]) {
-          stockData["stores"] = {};
+        for (var index in stores) {
+          var store = stores[index];
+          //var store = stores;
+          var storeCode = store["storeNumber"];
+          shopList[storeCode] = store["storeName"];
+          if (!stockData["stores"]) {
+            stockData["stores"] = {};
+          }
+          if (!stockData["stores"][storeCode]) {
+            stockData["stores"][storeCode] = {};
+          }
+          for (var modelId in store["partsAvailability"]) {
+            var flag = store["partsAvailability"][modelId]["pickupDisplay"] == "available" ? "true" : "false";
+            stockData["stores"][storeCode][modelId] = { "availability": { "contract": flag, "unlocked": flag } };
+          }
         }
-        if (!stockData["stores"][storeCode]) {
-          stockData["stores"][storeCode] = {};
-        }
-        for (var modelId in store["partsAvailability"]) {
-          var flag = store["partsAvailability"][modelId]["pickupDisplay"] == "available" ? "true" : "false";
-          stockData["stores"][storeCode][modelId] = { "availability": { "contract": flag, "unlocked": flag } };
-        }
-        //        }
         drawWatchList();
         clearTable();
         drawTable(stockData);
@@ -145,7 +145,7 @@ $(function () {
     var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=true&searchNearby=true&store=R224' + getModelListUrl();
     // get json data
     $.ajax({
-      url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
+      url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {
@@ -156,12 +156,12 @@ $(function () {
       async: true,
       cache: false,
       success: function (data) {
-        if (!data.query.results || !data.query.results.json) {
+        if (!data.body || !data.body.stores) {
           $("#time").html("No data. Try later.");
           return;
         }
         stockData = { "updated": (new Date).getTime() };
-        var stores = data.query.results.json.body["stores"];
+        var stores = data.body["stores"];
         if (!stores) {
           $("#time").html("No data. Try later.");
           return;
@@ -188,38 +188,41 @@ $(function () {
   }
 
   function getStoreData() {
-    var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=false&searchNearby=true&parts.0=MU682J%2FA&store=R224';
-    // get json data
-    $.ajax({
-      url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
-      beforeSend: function (xhr) {
-        if (xhr.overrideMimeType) {
-          xhr.overrideMimeType("application/json");
-        }
-      },
-      dataType: 'json',
-      async: true,
-      cache: false,
-      success: function (data) {
-        if (!data.query.results || !data.query.results.json) {
-          $("#time").html("No data. Try later.");
-          return;
-        }
-        // 2017 - now
-        if (!data.query.results.json["stores"]) {
-          getPickupData();
-          return;
-        }
-        // legacy way
-        for (var index in data.query.results.json["stores"]) {
-          var store = data.query.results.json["stores"][index];
-          shopList[store["storeNumber"]] = store["storeName"];
-        }
-        drawWatchList();
-        getStockData();
-      },
-      error: function (e) { alert("error!" + e.statusText); return; }
-    });
+    getPickupData();
+    return;
+
+    // var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=false&searchNearby=true&parts.0=MU682J%2FA&store=R224';
+    // // get json data
+    // $.ajax({
+    //   url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
+    //   beforeSend: function (xhr) {
+    //     if (xhr.overrideMimeType) {
+    //       xhr.overrideMimeType("application/json");
+    //     }
+    //   },
+    //   dataType: 'json',
+    //   async: true,
+    //   cache: false,
+    //   success: function (data) {
+    //     if (!data.query.results || !data.query.results.json) {
+    //       $("#time").html("No data. Try later.");
+    //       return;
+    //     }
+    //     // 2017 - now
+    //     if (!data.query.results.json["stores"]) {
+    //       getPickupData();
+    //       return;
+    //     }
+    //     // legacy way
+    //     for (var index in data.query.results.json["stores"]) {
+    //       var store = data.query.results.json["stores"][index];
+    //       shopList[store["storeNumber"]] = store["storeName"];
+    //     }
+    //     drawWatchList();
+    //     getStockData();
+    //   },
+    //   error: function (e) { alert("error!" + e.statusText); return; }
+    // });
   }
 
   // function getStoreDataLegacy() {
@@ -256,35 +259,35 @@ $(function () {
   //   });
   // }
 
-  function getStockData() {
-    var url = 'https://reserve-prime.apple.com/JP/ja_JP/reserve/iPhoneX/availability.json';
-
-    // get json data
-    $.ajax({
-      url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
-      //url: "stock.json",
-      beforeSend: function (xhr) {
-        if (xhr.overrideMimeType) {
-          xhr.overrideMimeType("application/json");
-        }
-      },
-      dataType: 'json',
-      async: true,
-      cache: false,
-      success: function (data) {
-        clearTable();
-        if (!data.query.results) {
-          $("#time").html("No data. Try later.");
-          return;
-        }
-        //alert(data);
-        drawTable(data.query.results.json);
-        checkStockData(data.query.results.json);
-      },
-      error: function (e) { alert("error!" + e.statusText); return; }
-    });
-
-  }
+//   function getStockData() {
+//     var url = 'https://reserve-prime.apple.com/JP/ja_JP/reserve/iPhoneX/availability.json';
+// 
+//     // get json data
+//     $.ajax({
+//       url: "https://query.yahooapis.com/v1/public/yql?" + "q=select%20*%20from%20json%20where%20url%3D%22" + encodeURIComponent(url) + "%22&format=json",
+//       //url: "stock.json",
+//       beforeSend: function (xhr) {
+//         if (xhr.overrideMimeType) {
+//           xhr.overrideMimeType("application/json");
+//         }
+//       },
+//       dataType: 'json',
+//       async: true,
+//       cache: false,
+//       success: function (data) {
+//         clearTable();
+//         if (!data.query.results) {
+//           $("#time").html("No data. Try later.");
+//           return;
+//         }
+//         //alert(data);
+//         drawTable(data.query.results.json);
+//         checkStockData(data.query.results.json);
+//       },
+//       error: function (e) { alert("error!" + e.statusText); return; }
+//     });
+// 
+//   }
 
   function unixdateformat(str) {
     var objDate = new Date(str);
@@ -507,7 +510,7 @@ $(function () {
         //if (check == true || check == "true") {
         if (check["availability"]["contract"] == "true" || check["availability"]["unlocked"] == "true") {
           // string = string + "<p>" + modelList[model] + ": OK</p>";
-          trs[model].push('<td class="table-success shop-column"><span class="badge badge-success"><span class="fa fa-check"></span></span></td>');
+          trs[model].push('<td class="table-success shop-column"><span class="fa fa-check"></span></td>');
         }
         else {
           // string = string + "<p>" + modelList[model] + ": X</p>";

@@ -36,7 +36,7 @@ $(function () {
     var origSrc = url + ":orig";
     var downUrl = url.replace(/^.*\/|\.\w*$/g, '');
 
-    var element = '<div class="col-xs-6 col-md-3"><a href="' + origSrc + '" class="thumbnail" download="' + downUrl + '"><img src="'+ origSrc + '"></a></div>';
+    var element = '<div class="col-xs-6 col-md-3"><a href="' + origSrc + '" download="' + downUrl + '"><img src="'+ origSrc + '" class="img-thumbnail"></a></div>';
     $('#picList').append(element);
   }
 
