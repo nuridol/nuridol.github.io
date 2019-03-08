@@ -55,11 +55,12 @@ $(function () {
     return url;
   }
 
-  function getPickupData2(preData) {
-    var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=true&searchNearby=true&store=R048' + getModelListUrl();
+  function getPickupData(preData, shopCode) {
+    var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=true&searchNearby=true&store=' + shopCode + getModelListUrl();
     // get json data
     $.ajax({
-      url: 'proxy.php?csurl=' + encodeURIComponent(url),
+        url: 'https://cors.io?' + url,
+      //url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {
@@ -96,63 +97,23 @@ $(function () {
             stockData["stores"][storeCode][modelId] = { "availability": { "contract": flag, "unlocked": flag } };
           }
         }
-        drawWatchList();
-        clearTable();
-        drawTable(stockData);
-        checkStockData(stockData);
-      },
-      error: function (e) { alert("error!" + e.statusText); return; }
-    });
-  }
-
-  function getPickupData() {
-    var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=true&searchNearby=true&store=R224' + getModelListUrl();
-    // get json data
-    $.ajax({
-      url: 'proxy.php?csurl=' + encodeURIComponent(url),
-      //url: "pickup.json",
-      beforeSend: function (xhr) {
-        if (xhr.overrideMimeType) {
-          xhr.overrideMimeType("application/json");
-        }
-      },
-      dataType: 'json',
-      async: true,
-      cache: false,
-      success: function (data) {
-        if (!data.body || !data.body.stores) {
-          $("#time").html("No data. Try later.");
-          return;
-        }
-        stockData = { "updated": (new Date).getTime() };
-        var stores = data.body["stores"];
-        if (!stores) {
-          $("#time").html("No data. Try later.");
-          return;
-        }
-        for (var index in stores) {
-          var store = stores[index];
-          var storeCode = store["storeNumber"];
-          shopList[storeCode] = store["storeName"];
-          if (!stockData["stores"]) {
-            stockData["stores"] = {};
-          }
-          if (!stockData["stores"][storeCode]) {
-            stockData["stores"][storeCode] = {};
-          }
-          for (var modelId in store["partsAvailability"]) {
-            var flag = store["partsAvailability"][modelId]["pickupDisplay"] == "available" ? "true" : "false";
-            stockData["stores"][storeCode][modelId] = { "availability": { "contract": flag, "unlocked": flag } };
-          }
-        }
-        getPickupData2(stockData);
+        return stockData;
       },
       error: function (e) { alert("error!" + e.statusText); return; }
     });
   }
 
   function getStoreData() {
-    getPickupData();
+    var stockData = { "updated": (new Date).getTime() };
+    getPickupData(stockData, "R224")
+    .then(stockData2 => getPickupData(stockData2, "R048"))
+    .then(stockData3 => getPickupData(stockData3, "R091"))
+    .then(stockData4 => {
+      drawWatchList();
+      clearTable();
+      drawTable(stockData4);
+      checkStockData(stockData4);  
+    });
     return;
 
     // var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=false&searchNearby=true&parts.0=MU682J%2FA&store=R224';

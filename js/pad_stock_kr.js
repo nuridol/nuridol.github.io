@@ -58,7 +58,8 @@ $(function () {
     var url = 'https://www.apple.com/kr/shop/retail/pickup-message?pl=true&searchNearby=true&store=R692' + getModelListUrl();
     // get json data
     $.ajax({
-      url: 'proxy.php?csurl=' + encodeURIComponent(url),
+        url: 'https://cors.io?' + url,
+      //url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {
@@ -108,7 +109,8 @@ $(function () {
     var url = 'https://www.apple.com/kr/shop/retail/pickup-message?pl=true&searchNearby=true&store=R692' + getModelListUrl();
     // get json data
     $.ajax({
-      url: 'proxy.php?csurl=' + encodeURIComponent(url),
+        url: 'https://cors.io?' + url,
+      //url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {
@@ -132,7 +134,7 @@ $(function () {
         for (var index in stores) {
           var store = stores[index];
           //var store = stores;
-          console.log(store);
+          //console.log(store);
           var storeCode = store["storeNumber"];
           shopList[storeCode] = store["storeName"];
           if (!stockData["stores"]) {

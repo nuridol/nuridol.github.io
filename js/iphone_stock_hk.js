@@ -136,7 +136,8 @@ $(function () {
     var url = 'https://www.apple.com/hk/shop/retail/pickup-message?pl=true&searchNearby=true&store=R499' + getModelListUrl();
     // get json data
     $.ajax({
-      url: 'proxy.php?csurl=' + encodeURIComponent(url),
+        url: 'https://cors.io?' + url,
+      //url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {

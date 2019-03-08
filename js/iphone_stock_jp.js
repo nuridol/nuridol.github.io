@@ -133,7 +133,8 @@ $(function () {
     var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=true&searchNearby=true&store=R048' + getModelListUrl();
     // get json data
     $.ajax({
-      url: 'proxy.php?csurl=' + encodeURIComponent(url),
+        url: 'https://cors.io?' + url,
+      //url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {
@@ -183,7 +184,8 @@ $(function () {
     var url = 'https://www.apple.com/jp/shop/retail/pickup-message?pl=true&searchNearby=true&store=R224' + getModelListUrl();
     // get json data
     $.ajax({
-      url: 'proxy.php?csurl=' + encodeURIComponent(url),
+        url: 'https://cors.io?' + url,
+      //url: 'proxy.php?csurl=' + encodeURIComponent(url),
       //url: "pickup.json",
       beforeSend: function (xhr) {
         if (xhr.overrideMimeType) {
