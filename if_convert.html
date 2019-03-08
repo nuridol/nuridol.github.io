@@ -1,100 +1,145 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- Custom styles for this template -->
-    <link href="css/navbar.css" rel="stylesheet">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36127443-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-36127443-1');
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Optional theme -->
+  <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/sandstone/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
       <script src="https://raw.githubusercontent.com/aFarkas/html5shiv/master/dist/html5shiv.min.js"></script>
     <![endif]-->
 
-    <meta name="description" content="convert iframe tag to object tag, iframe 변환기">
-    <meta name="author" content="NuRi">
-    <!-- http://www.wpzoom.com/wpzoom/new-freebie-wpzoom-developer-icon-set-154-free-icons/ -->
-    <link rel="shortcut icon" href="icon/tools.png">
-    <title>NuRi's Tools - iframe 변환기</title>
-  </head>
-  <body>
-    <!-- Wrap all page content here -->
-    <div id="wrap">
+  <meta name="description" content="convert iframe tag to object tag, iframe 변환기">
+  <meta name="author" content="NuRi">
+  <!-- http://www.wpzoom.com/wpzoom/new-freebie-wpzoom-developer-icon-set-154-free-icons/ -->
+  <link rel="shortcut icon" href="icon/tools.png">
+  <title>NuRi's Tools - iframe 변환기</title>
+  <style>
+body {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
 
-      <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">NuRi's Tools</a>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="if_convert.html"><span class="glyphicon glyphicon-refresh"></span> Iframe</a></li>
-              <li><a href="ut_convert.html"><span class="fa fa-youtube fa-lg"></span> YouTube</a></li>
-              <li><a href="mapconvert.html"><span class="glyphicon glyphicon-map-marker"></span> Maps</a></li>
-              <li><a href="stock_jp.html"><span class="glyphicon glyphicon-phone"></span> <small>iPhone stock JP</small></a></li>
-              <li><a href="stock_hk.html"><span class="glyphicon glyphicon-phone"></span> <small>iPhone stock HK</small></a></li>
-              <li><a href="stock_watch_jp.html"><span>⌚</span> <small>Watch stock JP</small></a></li>
-              <li><a href="twitter.html"><span class="fa fa-twitter fa-lg"></span> <small>Twitter Pic <span class="glyphicon glyphicon-download"></small></a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!-- /.container -->
-      </div>
+footer {
+  height: 2rem;
+  background-color: #f5f5f5;
+}
 
-      <!-- Begin page content -->
+.nav-dropdown-icon {
+    margin: 0 0.3rem 0 0.2rem;
+}
+
+#code-box textarea {
+    font-size: 0.9rem;
+}
+    </style>
+</head>
+
+<body>
+  <!-- Wrap all page content here -->
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm rounded small">
       <div class="container">
-        <div class="page-header">
-          <h2><code>&lt;iframe&gt;</code> 변환기 <small>Convert iframe to object</small></h2>
+        <a class="navbar-brand" href="#">NuRi's Tools</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active"><a class="nav-link" href="if_convert.html"><span class="fa fa-code fa-lg"></span>
+                Iframe</a></li>
+            <li class="nav-item"><a class="nav-link" href="ut_convert.html"><span class="fa fa-youtube fa-lg"></span>
+                YouTube</a></li>
+            <li class="nav-item"><a class="nav-link" href="mapconvert.html"><span class="fa fa-map-marker fa-lg"></span>
+                Maps</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockJp" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(JP)
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownStockJp">
+                <a class="dropdown-item" href="stock_jp.html">📱 iPhone stock JP</a>
+                <a class="dropdown-item" href="stock_watch_jp.html">⌚ Watch stock JP</a>
+                <a class="dropdown-item" href="stock_pad_jp.html"><span class="fa fa-tablet fa-lg nav-dropdown-icon"></span> iPad stock JP</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockKr" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(KR)
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownStockKr">
+                <a class="dropdown-item" href="stock_watch_kr.html">⌚ Watch stock KR</a>
+                <a class="dropdown-item" href="stock_pad_kr.html"><span class="fa fa-tablet fa-lg nav-dropdown-icon"></span> iPad stock KR</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockHk" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(HK)
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownStockHk">
+                <a class="dropdown-item" href="stock_hk.html">📱 iPhone stock HK</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="twitter.html"><span class="fa fa-twitter fa-lg"></span>
+                Twitter Pic <span class="fa fa-download fa-sm"></span></a></li>
+          </ul>
         </div>
-        <div class="alert alert-warning"><a href="ut_convert.html">YouTube는 여기서 변환하세요.</a></div>
-        <div class="well well-sm">
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <main class="container">
+      <div class="pb-2 mt-4 mb-2 border-bottom">
+        <h3><code>&lt;iframe&gt;</code> 변환기 <small class="alert-light">Convert iframe to object</small></h3>
+      </div>
+      <div class="alert alert-warning" role="alert"><a href="ut_convert.html">YouTube는 여기서 변환하세요.</a></div>
+      <div class="card bg-light" id="code-box">
+        <div class="card-body">
           <div class="input-group">
-            <span class="input-group-addon">iframe</span>
-            <textarea rows="4" id="code" placeholder="iframe 코드를 넣으세요(input iframe code here)" class="form-control code_input"></textarea>
+            <div class="input-group-prepend">
+              <span class="input-group-text">iframe</span>
+            </div>
+            <textarea rows="4" id="code" placeholder="iframe 코드를 넣으세요(input iframe code here)" class="form-control text-monospace text-secondary"></textarea>
           </div>
           <div style="max-width: 300px; margin: 10px auto 10px;">
             <button class="btn btn-block btn-primary" type="submit" id="convert"><i class="icon-wrench icon-white"></i> Convert</button>
           </div>
           <div class="input-group">
-            <span class="input-group-addon">object</span>
-            <textarea rows="6" id="result" class="form-control" disabled="disabled"></textarea>
+            <div class="input-group-prepend">
+              <span class="input-group-text">object</span>
+            </div>
+            <textarea rows="6" id="result" class="form-control text-monospace" disabled="disabled"></textarea>
           </div>
         </div>
-        <div id="testbox"></div>
       </div>
-    </div>
+      <div id="testbox"></div>
+  </main>
 
-    <div id="footer">
-      <div class="container">
-        <p class="text-muted credit">&copy; nuridol.net</p>
-      </div>
+  <footer class="fixed-bottom">
+    <div class="container small">
+      <p class="text-muted credit pt-1">&copy; nuridol.net</p>
     </div>
- 
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-     <!-- https://github.com/scottjehl/Respond -->
-    <!-- script src="js/respond.min.js"></script -->
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  </footer>
 
-      ga('create', 'UA-36127443-1', 'auto');
-      ga('require', 'linkid', 'linkid.js');
-      ga('require', 'displayfeatures');
-      ga('send', 'pageview');
-    </script>
-    <script src="js/if_convert.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="js/if_convert.js?_ver=20181127"></script>
+</body>
+
 </html>
