@@ -1,43 +1,30 @@
-// pad models
-// https://www.apollomaniacs.com/ipod/ifamily_partnumber_ipadpro.htm
+// pad models (2019.03.21)
 var MODEL_LIST = {
-  'MTXP2J/A': 'WiFi/11"/S/64GB',
-  'MTXR2J/A': 'WiFi/11"/S/256GB',
-  'MTXU2J/A': 'WiFi/11"/S/512GB',
-  'MTXW2J/A': 'WiFi/11"/S/1TB',
+  'MUUK2J/A': 'Air WiFi/S/64GB',
+  'MUUR2J/A': 'Air WiFi/S/256GB',
+  'MUUJ2J/A': 'Air WiFi/SG/64GB',
+  'MUUQ2J/A': 'Air WiFi/SG/256GB',
+  'MUUL2J/A': 'Air WiFi/G/64GB',
+  'MUUT2J/A': 'Air WiFi/G/256GB',
 
-  'MTXN2J/A': 'WiFi/11"/SG/64GB',
-  'MTXQ2J/A': 'WiFi/11"/SG/256GB',
-  'MTXT2J/A': 'WiFi/11"/SG/512GB',
-  'MTXV2J/A': 'WiFi/11"/SG/1TB',
+  'MV0E2J/A': 'Air Cellular/S/64GB',
+  'MV0P2J/A': 'Air Cellular/S/256GB',
+  'MV0D2J/A': 'Air Cellular/SG/64GB',
+  'MV0N2J/A': 'Air Cellular/SG/256GB',
+  'MV0F2J/A': 'Air Cellular/G/64GB',
+  'MV0Q2J/A': 'Air Cellular/G/256GB',
 
-  'MU0U2J/A': 'Cellular/11"/S/64GB',
-  'MU172J/A': 'Cellular/11"/S/256GB',
-  'MU1M2J/A': 'Cellular/11"/S/512GB',
-  'MU222J/A': 'Cellular/11"/S/1TB',
+  'MUQX2J/A': 'mini WiFi/S/64GB',
+  'MUU52J/A': 'mini WiFi/S/256GB',
+  'MUQW2J/A': 'mini WiFi/SG/64GB',
+  'MUU32J/A': 'mini WiFi/SG/256GB',
+  'MUQY2J/A': 'mini WiFi/G/64GB',
+  'MUU62J/A': 'mini WiFi/G/256GB',
 
-  'MU0M2J/A': 'Cellular/11"/SG/64GB',
-  'MU102J/A': 'Cellular/11"/SG/256GB',
-  'MU1F2J/A': 'Cellular/11"/SG/512GB',
-  'MU1V2J/A': 'Cellular/11"/SG/1TB',
-
-  'MTEM2J/A': 'WiFi/12.9"/S/64GB',
-  'MTFN2J/A': 'WiFi/12.9"/S/256GB',
-  'MTFQ2J/A': 'WiFi/12.9"/S/512GB',
-  'MTFT2J/A': 'WiFi/12.9"/S/1TB',
-
-  'MTEL2J/A': 'WiFi/12.9"/SG/64GB',
-  'MTFL2J/A': 'WiFi/12.9"/SG/256GB',
-  'MTFP2J/A': 'WiFi/12.9"/SG/512GB',
-  'MTFR2J/A': 'WiFi/12.9"/SG/1TB',
-
-  'MTHP2J/A': 'Cellular/12.9"/S/64GB',
-  'MTJ62J/A': 'Cellular/12.9"/S/256GB',
-  'MTJJ2J/A': 'Cellular/12.9"/S/512GB',
-  'MTJV2J/A': 'Cellular/12.9"/S/1TB',
-
-  'MTHJ2J/A': 'Cellular/12.9"/SG/64GB',
-  'MTHV2J/A': 'Cellular/12.9"/SG/256GB',
-  'MTJD2J/A': 'Cellular/12.9"/SG/512GB',
-  'MTJP2J/A': 'Cellular/12.9"/SG/1TB'
+  'MUX62J/A': 'mini Cellular/S/64GB',
+  'MUXD2J/A': 'mini Cellular/S/256GB',
+  'MUX52J/A': 'mini Cellular/SG/64GB',
+  'MUXC2J/A': 'mini Cellular/SG/256GB',
+  'MUX72J/A': 'mini Cellular/G/64GB',
+  'MUXE2J/A': 'mini Cellular/G/256GB'
 };
