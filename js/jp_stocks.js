@@ -272,7 +272,7 @@ $(function () {
         if (!check) {
           check = stockInfo[model.replace("/", "_")];
         }
-        if (check["availability"]["contract"] == "true" || check["availability"]["unlocked"] == "true") {
+        if (check && (check["availability"]["contract"] == "true" || check["availability"]["unlocked"] == "true")) {
           trs[model].push('<td class="table-success shop-column"><span class="fa fa-check"></span></td>');
         } else {
           trs[model].push('<td class="shop-column text-secondary"><span class="fa fa-times fa-sm"></span></td>');
