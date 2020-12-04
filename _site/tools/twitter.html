@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36127443-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-36127443-1');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/sandstone/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://raw.githubusercontent.com/aFarkas/html5shiv/master/dist/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <meta name="description" content="Twitter Pic Download">
+    <meta name="author" content="NuRi">
+    <!-- http://www.wpzoom.com/wpzoom/new-freebie-wpzoom-developer-icon-set-154-free-icons/ -->
+    <link rel="shortcut icon" href="icon/tools.png">
+    <title>NuRi's Tools - Twitter Pic Download</title>
+    <style>
+        body {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+        }
+        
+        footer {
+            height: 2rem;
+            background-color: #f5f5f5;
+        }
+        
+        .nav-dropdown-icon {
+            margin: 0 0.3rem 0 0.2rem;
+        }
+        
+        #code-box {
+            font-size: 0.9rem;
+        }
+        
+        #picList {
+            min-height: 100px;
+        }
+        
+        #watchPanel {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Wrap all page content here -->
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm rounded small">
+        <div class="container">
+            <a class="navbar-brand" href="#">NuRi's Tools</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="if_convert.html"><span class="fa fa-code fa-lg"></span>
+                Iframe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ut_convert.html"><span class="fa fa-youtube fa-lg"></span>
+                YouTube</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mapconvert.html"><span class="fa fa-map-marker fa-lg"></span>
+                Maps</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockJp" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(JP)
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownStockJp">
+                            <a class="dropdown-item" href="stock_jp.html">📱 iPhone stock JP</a>
+                            <a class="dropdown-item" href="stock_watch_jp.html">⌚ Watch stock JP</a>
+                            <a class="dropdown-item" href="stock_pad_jp.html"><span class="fa fa-tablet fa-lg nav-dropdown-icon"></span> iPad stock JP</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockKr" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(KR)
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownStockKr">
+                            <a class="dropdown-item" href="stock_kr.html">📱 iPhone stock KR</a>
+                            <a class="dropdown-item" href="stock_watch_kr.html">⌚ Watch stock KR</a>
+                            <a class="dropdown-item" href="stock_pad_kr.html"><span class="fa fa-tablet fa-lg nav-dropdown-icon"></span> iPad stock KR</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockHk" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(HK)
+              </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownStockHk">
+                            <a class="dropdown-item" href="stock_hk.html">📱 iPhone stock HK</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active"><a class="nav-link" href="twitter.html"><span class="fa fa-twitter fa-lg"></span>
+                Twitter Pic <span class="fa fa-download fa-sm"></span></a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <main class="container">
+        <div class="pb-2 mt-4 mb-2 border-bottom">
+            <h3><span class="badge badge-info"><span class="fa fa-twitter-square fa-lg"></span> 트위터</span> 원본 이미지 다운로드 <small class="alert-light">Twitter Original Pic Download</small></h3>
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><a href="#" id="clear"><span class="fa fa-twitter fa-lg"></span></a>
+                </span>
+            </div>
+            <input id="link" type="text" class="form-control" placeholder="Input Twitter Link" aria-describedby="basic-addon1">
+            <div class="input-group-append">
+                <span class="input-group-btn"><button type="button" class="btn btn-info" id="search">Go!</button></span>
+            </div>
+        </div>
+
+        <div class="card bg-light" id="watchPanel">
+            <div class="card-header">Images</div>
+            <div class="card-body">
+                <div id="picList" class="row"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="fixed-bottom">
+        <div class="container small">
+            <p class="text-muted credit pt-1">&copy; nuridol.net</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/twitter_pic.js?_ver=20181127"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+// 11 models
+var MODEL_LIST = {
+    'MWD92ZA/A': 'pro 64GB space gray',
+    'MWDA2ZA/A': 'pro 64GB silver',
+    'MWDD2ZA/A': 'pro 64GB midnightgreen',
+    'MWDC2ZA/A': 'pro 64GB gold',
+    'MWDE2ZA/A': 'pro 256GB space gray',
+    'MWDF2ZA/A': 'pro 256GB silver',
+    'MWDH2ZA/A': 'pro 256GB midnightgreen',
+    'MWDG2ZA/A': 'pro 256GB gold',
+    'MWDJ2ZA/A': 'pro 512GB space gray',
+    'MWDK2ZA/A': 'pro 512GB silver',
+    'MWDM2ZA/A': 'pro 512GB midnightgreen',
+    'MWDL2ZA/A': 'pro 512GB gold',
+    'MWEV2ZA/A': 'max 64GB space gray',
+    'MWEW2ZA/A': 'max 64GB silver',
+    'MWF02ZA/A': 'max 64GB midnightgreen',
+    'MWEX2ZA/A': 'max 64GB gold',
+    'MWF12ZA/A': 'max 256GB space gray',
+    'MWF22ZA/A': 'max 256GB silver',
+    'MWF42ZA/A': 'max 256GB midnightgreen',
+    'MWF32ZA/A': 'max 256GB gold',
+    'MWF52ZA/A': 'max 512GB space gray',
+    'MWF62ZA/A': 'max 512GB silver',
+    'MWF82ZA/A': 'max 512GB midnightgreen',
+    'MWF72ZA/A': 'max 512GB gold'
+};
