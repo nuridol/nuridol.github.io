@@ -543,7 +543,7 @@
     color: $muted-text-color;
     font-weight: bold;
     line-height: 1.5;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $border-color !important;
 
     &:hover {
       color: $text-color;

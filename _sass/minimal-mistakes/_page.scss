@@ -125,6 +125,7 @@ body {
   }
 
   a:not(.btn) {
+    border-bottom: 1px dotted #000;
     &:hover {
       text-decoration: underline;
 
