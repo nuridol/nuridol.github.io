@@ -3,7 +3,7 @@ main:
   - title: "About"
     url: /about/
   - title: "Tools"
-    url: https://www.nuridol.net/tools/
+    url: /tools/
   - title: "Posts"
     url: /year-archive/
   - title: "Categories"
