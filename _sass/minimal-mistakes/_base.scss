@@ -124,9 +124,17 @@ blockquote {
 }
 
 /* links */
+.page__content a {
+  border-bottom: 1px dotted #000;
+}
 
 a {
   text-decoration: none;
+
+  &:before {
+
+  }
+
   &:focus {
     @extend %tab-focus;
   }
@@ -137,6 +145,7 @@ a {
 
   &:hover {
     color: $link-color-hover;
+    text-shadow: 0 0 1px #aaa;
     outline: 0;
   }
 }
