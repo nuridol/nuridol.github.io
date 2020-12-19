@@ -48,8 +48,13 @@ $(function() {
     function getPickupData(startCode) {
         var url = APPLE_STORE_URL + startCode + getModelListUrl();
         // get json data
+        //cors_url = 'https://api.allorigins.win/get?url=';
+        cors_url = 'https://cors-anywhere.herokuapp.com/';
+        //cors_url = 'https://cors-proxy.htmldriven.com/?url=';
+        //cors_url = 'https://yacdn.org/proxy/';
         return $.ajax({
-            url: 'https://cors-anywhere.herokuapp.com/' + url,
+            url: cors_url + url,
+            //url: url,
             beforeSend: function(xhr) {
                 if (xhr.overrideMimeType) {
                     xhr.overrideMimeType("application/json");

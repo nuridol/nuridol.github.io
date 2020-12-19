@@ -11,5 +11,8 @@ var MODEL_LIST = {
   'MYD82KH/A':'M1 Pro Gray/256GB',
   'MYDA2KH/A':'M1 Pro Silver/256GB',
   'MYD92KH/A':'M1 Pro Gray/512GB',
-  'MYDC2KH/A':'M1 Pro Silver/512GB'
+  'MYDC2KH/A':'M1 Pro Silver/512GB',
+  
+  'MGNR3KH/A':'M1 Mini 256GB',
+  'MGNT3KH/A':'M1 Mini 512GB'
 };
