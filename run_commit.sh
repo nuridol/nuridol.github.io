@@ -11,7 +11,7 @@ function auto_commit {
         /usr/local/bin/git add .
         /usr/local/bin/git commit -a -m "auto commit $(/bin/date +%F-%T)"
         /usr/local/bin/git push
-        echo "DONE!\n"
+        echo "DONE!"
     fi
     )
 }
