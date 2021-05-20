@@ -2,6 +2,8 @@
 main:
   - title: "About"
     url: /about/
+  - title: "TIL"
+    url: https://github.com/nuridol/TIL
   - title: "Tools"
     url: /tools/
   - title: "Posts"
