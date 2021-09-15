@@ -23,9 +23,9 @@ $(function() {
         });
         // load model list
         let script1 = document.createElement('script');
-        script1.src = "js/kr_" + itemType + ".js";
+        script1.src = "js/jp_" + itemType + ".js";
         let script2 = document.createElement('script');
-        script2.src = "js/kr_stocks.js";
+        script2.src = "js/jp_stocks.js";
         document.body.append(script1);
         document.body.append(script2);
     }

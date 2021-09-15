@@ -16,7 +16,8 @@
         gtag('config', 'UA-36127443-1');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <!-- Optional theme -->
     <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/sandstone/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,33 +30,79 @@
     <meta name="author" content="NuRi">
     <!-- http://www.wpzoom.com/wpzoom/new-freebie-wpzoom-developer-icon-set-154-free-icons/ -->
     <link rel="shortcut icon" href="icon/tools.png">
-    <title>NuRi's Tools - iPhone Stock JP</title>
+    <title>NuRi's Tools - Apple store pickup checker(JP)</title>
     <style>
         body {
             padding-top: 3.5rem;
             padding-bottom: 3.5rem;
         }
-        
+
         #table {
-            font-size: 75%;
+            font-size: 70%;
         }
-        
+
         footer {
             height: 2rem;
             background-color: #f5f5f5;
         }
-        
+
         td,
         th {
             text-align: center;
         }
-        
+
         .shop-column {
+            min-width: 5%;
             width: 9%;
+            max-width: 50%;
         }
-        
+
         .nav-dropdown-icon {
             margin: 0 0.3rem 0 0.2rem;
+        }
+
+        @media all and (max-width: 1000px) {
+            .table-box-wrap {
+                position: relative;
+                padding-top: 2rem;
+            }
+
+            .table-box-wrap .table-box {
+                max-height: 400px;
+                overflow: auto;
+                overflow-x: hidden;
+            }
+
+            .table-box-wrap .table-box table {
+                width: 100%;
+                table-layout: fixed;
+                word-break: break-all;
+            }
+
+            .table-box-wrap .table-box table thead tr {
+                position: absolute;
+                top: 0;
+                width: 99%;
+            }
+
+            .table-box-wrap .table-box table thead tr th {
+                height: 2rem;
+            }
+
+            .table-box-wrap .table-box table tr {
+                display: inline-table;
+                width: 100%;
+            }
+        }
+
+        @media all and (max-width: 767px) {
+            .table-box-wrap {
+                padding-top: 3.6rem;
+            }
+
+            .table-box-wrap .table-box table thead tr th {
+                height: 3.6rem;
+            }
         }
     </style>
 </head>
@@ -67,48 +114,21 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm rounded small">
         <div class="container">
             <a class="navbar-brand" href="#">NuRi's Tools</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+                aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="if_convert.html"><span class="fa fa-code fa-lg"></span>
-              Iframe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ut_convert.html"><span class="fa fa-youtube fa-lg"></span>
-              YouTube</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mapconvert.html"><span class="fa fa-map-marker fa-lg"></span>
-              Maps</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownStockJp" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span>
-              Stock(JP)
-            </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownStockJp">
-                            <a class="dropdown-item active" href="stock_jp.html">📱 iPhone stock JP</a>
-                            <a class="dropdown-item" href="stock_watch_jp.html">⌚ Watch stock JP</a>
-                            <a class="dropdown-item" href="stock_pad_jp.html"><span
-                  class="fa fa-tablet fa-lg nav-dropdown-icon"></span> iPad stock JP</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockKr" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(KR)
-            </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownStockKr">
-                            <a class="dropdown-item" href="stock_kr.html">📱 iPhone stock KR</a>
-                            <a class="dropdown-item" href="stock_watch_kr.html">⌚ Watch stock KR</a>
-                            <a class="dropdown-item" href="stock_pad_kr.html"><span
-                  class="fa fa-tablet fa-lg nav-dropdown-icon"></span> iPad stock KR</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownStockHk" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-apple fa-lg"></span> Stock(HK)
-            </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownStockHk">
-                            <a class="dropdown-item" href="stock_hk.html">📱 iPhone stock HK</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="twitter.html"><span class="fa fa-twitter fa-lg"></span>
-              Twitter Pic <span class="fa fa-download fa-sm"></span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="if_convert.html"><span
+                                class="fa fa-code fa-lg"></span>Iframe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ut_convert.html"><span
+                                class="fa fa-youtube fa-lg"></span>YouTube</a></li>
+                    <li class="nav-item"><a class="nav-link" href="stock_kr.html"><span
+                                class="fa fa-apple fa-lg"></span>Pickup(KR)</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="stock_jp.html"><span
+                                class="fa fa-apple fa-lg"></span>Pickup(JP)</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -118,10 +138,15 @@
     <!-- Begin page content -->
     <main class="container">
         <div class="pb-2 mt-4 mb-2 border-bottom">
-            <h3>iPhone 11 <a href="https://www.apple.com/jp/iphone/?buyFlow=true"><span
-            class="badge badge-danger">Stock</span></a>
-                <span class="fa fa-search"></span> <small><span class="badge badge-pill badge-secondary small">JP</span></small>
+            <h3>Apple Store <a href="https://www.apple.com/jp/"><span class="badge badge-danger">Pickup</span></a>
+                <span class="fa fa-search"></span> <small><span
+                        class="badge badge-pill badge-secondary small">JP</span></small>
             </h3>
+        </div>
+
+        <div class="btn-group btn-group-toggle" id="options">
+            <a href="#iphone13" class="btn btn-success" id="option_iphone13" role="button">iPhone13</a>
+            <a href="#iphone13pro" class="btn btn-success" id="option_iphone13pro" role="button">iPhone13 Pro</a>
         </div>
 
         <div class="card">
@@ -159,10 +184,11 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="js/jp_iphone.js?_ver=20190918"></script>
-    <script src="js/jp_stocks.js?_ver=20190918"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="js/jp_setup.js?_ver=20210915"></script>
 </body>
 
 </html>

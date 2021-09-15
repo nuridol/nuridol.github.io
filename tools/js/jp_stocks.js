@@ -13,13 +13,15 @@ $(function() {
     }
 
     function aggregateData(data) {
+        var stockData = {"stores": {}};
         if (!data.body || !data.body.stores) {
-            throw new Error("No data. Try later.");
+            // throw new Error("No data. Try later.");
+            return stockData;
         }
-        var stockData = {};
         var stores = data.body["stores"];
         if (!stores) {
-            throw new Error("No data. Try later.");
+            // throw new Error("No data. Try later.");
+            return stockData;
         }
         for (var index in stores) {
             var store = stores[index];
@@ -43,6 +45,28 @@ $(function() {
         }
         //rawData[startCode] = stockData;
         return stockData;
+    }
+
+    function getStoreList() {
+        var url = "https://www.apple.com/rsp-web/store-search?locale=ko_KR";
+        // get json data
+        //cors_url = 'https://api.allorigins.win/get?url=';
+        cors_url = 'https://polished-disk-d743.nuridol.workers.dev/?';
+        //cors_url = 'https://cors-proxy.htmldriven.com/?url=';
+        //cors_url = 'https://yacdn.org/proxy/';
+        // encodeURIComponent(
+        return $.ajax({
+            url: cors_url + url,
+            //url: url,
+            beforeSend: function(xhr) {
+                if (xhr.overrideMimeType) {
+                    xhr.overrideMimeType("application/json");
+                }
+            },
+            dataType: 'json',
+            async: true,
+            cache: false
+        });
     }
 
     function getPickupData(startCode) {
@@ -85,7 +109,9 @@ $(function() {
             const d2 = aggregateData(data2[0]);
             const d3 = aggregateData(data3[0]);
             stockData["stores"] = Object.assign({}, d1.stores, d2.stores, d3.stores);
-
+            if (stockData["stores"].length < 1) {
+                throw new Error("No data. Try later.");
+            }
             drawWatchList();
             clearTable();
             drawTable(stockData);
