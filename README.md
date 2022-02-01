@@ -1,2 +1,3 @@
-# [NuRi's Blog](https://www.nuridol.net)
+# Blog & Tools
 
+You can access my blog here [https://www.nuridol.net](https://www.nuridol.net).
