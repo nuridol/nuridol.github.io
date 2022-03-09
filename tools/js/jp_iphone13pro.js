@@ -16,6 +16,10 @@ var MODEL_LIST = {
 'MLV33J/A': 'pro 1tb silver',
 'MLV43J/A': 'pro 1tb gold',
 'MLV13J/A': 'pro 1tb graphite',
+'MNDX3J/A': 'pro 128GB alpinegreen',
+'MNDY3J/A': 'pro 256GB alpinegreen',
+'MNE03J/A': 'pro 512GB alpinegreen',
+'MNE13J/A': 'pro 1tb alpinegreen',
 
 'MLJ73J/A': 'max 128GB sierrablue',
 'MLJ53J/A': 'max 128GB silver',
@@ -32,5 +36,9 @@ var MODEL_LIST = {
 'MLKK3J/A': 'max 1tb sierrablue',
 'MLKH3J/A': 'max 1tb silver',
 'MLKJ3J/A': 'max 1tb gold',
-'MLKG3J/A': 'max 1tb graphite'
+'MLKG3J/A': 'max 1tb graphite',
+'MNCU3J/A': 'max 128GB alpinegreen',
+'MNCV3J/A': 'max 256GB alpinegreen',
+'MNCW3J/A': 'max 512GB alpinegreen',
+'MNCX3J/A': 'max 1tb alpinegreen'
 };

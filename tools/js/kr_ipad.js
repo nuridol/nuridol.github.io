@@ -1,4 +1,4 @@
-// pad & mini models (2021.09.15)
+// pad, mini, air models (2022.03.09)
 var MODEL_LIST = {
 'MK2K3KH/A': 'pad 64GB space gray',
 'MK2N3KH/A': 'pad 256GB space gray',
@@ -24,5 +24,26 @@ var MODEL_LIST = {
 'MK8K3KH/A': 'mini 256GB purple',
 'MLX93KH/A': 'mini 256GB pink',
 'MK8H3KH/A': 'mini 256GB starlight',
-'MK8F3KH/A': 'mini 256GB space gray'
+'MK8F3KH/A': 'mini 256GB space gray',
+
+'MM9C3KH/A': 'air 64GB space gray',
+'MM9L3KH/A': 'air 256GB space gray',
+'MM9D3KH/A': 'air 64GB pink',
+'MM9M3KH/A': 'air 256GB pink',
+'MME23KH/A': 'air 64GB purple',
+'MME63KH/A': 'air 256GB purple',
+'MM9E3KH/A': 'air 64GB blue',
+'MM9N3KH/A': 'air 256GB blue',
+'MM9F3KH/A': 'air 64GB starlight',
+'MM9P3KH/A': 'air 256GB starlight',
+'MM6R3KH/A': 'air cellular 64GB space gray',
+'MM713KH/A': 'air cellular 256GB space gray',
+'MM6T3KH/A': 'air cellular 64GB pink',
+'MM723KH/A': 'air cellular 256GB pink',
+'MME93KH/A': 'air cellular 64GB purple',
+'MMED3KH/A': 'air cellular 256GB purple',
+'MM6U3KH/A': 'air cellular 64GB blue',
+'MM733KH/A': 'air cellular 256GB blue',
+'MM6V3KH/A': 'air cellular 64GB starlight',
+'MM743KH/A': 'air cellular 256GB starlight'
 };

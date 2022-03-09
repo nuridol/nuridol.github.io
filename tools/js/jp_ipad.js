@@ -1,4 +1,4 @@
-// pad & mini models (2021.09.15)
+// pad, mini, air models (2022.03.09)
 var MODEL_LIST = {
 'MK2K3J/A': 'ipad 64GB space gray',
 'MK2N3J/A': 'ipad 256GB space gray',
@@ -24,5 +24,26 @@ var MODEL_LIST = {
 'MK8K3J/A': 'mini 256GB purple',
 'MLX93J/A': 'mini 256GB pink',
 'MK8H3J/A': 'mini 256GB starlight',
-'MK8F3J/A': 'mini 256GB space gray'
+'MK8F3J/A': 'mini 256GB space gray',
+
+'MM9C3J/A': 'air 64GB space gray',
+'MM9L3J/A': 'air 256GB space gray',
+'MM9D3J/A': 'air 64GB pink',
+'MM9M3J/A': 'air 256GB pink',
+'MME23J/A': 'air 64GB purple',
+'MME63J/A': 'air 256GB purple',
+'MM9E3J/A': 'air 64GB blue',
+'MM9N3J/A': 'air 256GB blue',
+'MM9F3J/A': 'air 64GB starlight',
+'MM9P3J/A': 'air 256GB starlight',
+'MM6R3J/A': 'air cellular 64GB space gray',
+'MM713J/A': 'air cellular 256GB space gray',
+'MM6T3J/A': 'air cellular 64GB pink',
+'MM723J/A': 'air cellular 256GB pink',
+'MME93J/A': 'air cellular 64GB purple',
+'MMED3J/A': 'air cellular 256GB purple',
+'MM6U3J/A': 'air cellular 64GB blue',
+'MM733J/A': 'air cellular 256GB blue',
+'MM6V3J/A': 'air cellular 64GB starlight',
+'MM743J/A': 'air cellular 256GB starlight'
 };

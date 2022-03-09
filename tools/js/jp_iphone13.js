@@ -15,6 +15,9 @@ var MODEL_LIST = {
 'MLNF3J/A': '13 128GB product red',
 'MLNL3J/A': '13 256GB product red',
 'MLNR3J/A': '13 512GB product red',
+'MNGG3J/A': '13 128GB green',
+'MNGH3J/A': '13 256GB green',
+'MNGJ3J/A': '13 512GB green',
 
 'MLJF3J/A': '13mini 128GB pink',
 'MLJL3J/A': '13mini 256GB pink',
@@ -30,5 +33,8 @@ var MODEL_LIST = {
 'MLJR3J/A': '13mini 512GB starlight',
 'MLJG3J/A': '13mini 128GB product red',
 'MLJM3J/A': '13mini 256GB product red',
-'MLJW3J/A': '13mini 512GB product red'
+'MLJW3J/A': '13mini 512GB product red',
+'MNFC3J/A': '13mini 128GB green',
+'MNFD3J/A': '13mini 256GB green',
+'MNFE3J/A': '13mini 512GB green'
 };

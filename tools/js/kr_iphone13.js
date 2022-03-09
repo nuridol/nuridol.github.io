@@ -1,4 +1,4 @@
-// 13 models (2021.09.15)
+// 13 models
 var MODEL_LIST = {
 'MLK23KH/A': '13mini 128GB pink',
 'MLK73KH/A': '13mini 256GB pink',
@@ -15,6 +15,10 @@ var MODEL_LIST = {
 'MLK33KH/A': '13mini 128GB product red',
 'MLK83KH/A': '13mini 256GB product red',
 'MLKE3KH/A': '13mini 512GB product red',
+'MNFF3KH/A': '13mini 128GB green',
+'MNFG3KH/A': '13mini 256GB green',
+'MNFH3KH/A': '13mini 512GB green',
+
 'MLPH3KH/A': '13 128GB pink',
 'MLQ83KH/A': '13 256GB pink',
 'MLQE3KH/A': '13 512GB pink',
@@ -29,5 +33,8 @@ var MODEL_LIST = {
 'MLQD3KH/A': '13 512GB starlight',
 'MLPJ3KH/A': '13 128GB product red',
 'MLQ93KH/A': '13 256GB product red',
-'MLQF3KH/A': '13 512GB product red'
+'MLQF3KH/A': '13 512GB product red',
+'MNGK3KH/A': '13 128GB green',
+'MNGL3KH/A': '13 256GB green',
+'MNGM3KH/A': '13 512GB green'
 };

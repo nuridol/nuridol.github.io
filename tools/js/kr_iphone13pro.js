@@ -1,4 +1,4 @@
-// 13pro models (2021.09.15)
+// 13pro models
 var MODEL_LIST = {
 'MLVD3KH/A': 'pro 128GB sierrablue',
 'MLVA3KH/A': 'pro 128GB silver',
@@ -16,6 +16,9 @@ var MODEL_LIST = {
 'MLVW3KH/A': 'pro 1tb silver',
 'MLVY3KH/A': 'pro 1tb gold',
 'MLVV3KH/A': 'pro 1tb graphite',
+'MNE23KH/A': 'pro 128GB alpinegreen',
+'MNE33KH/A': 'pro 256GB alpinegreen',
+'MNE43KH/A': 'pro 512GB alpinegreen',
 
 'MLL93KH/A': 'max 128GB sierrablue',
 'MLL73KH/A': 'max 128GB silver',
@@ -32,5 +35,9 @@ var MODEL_LIST = {
 'MLLN3KH/A': 'max 1tb sierrablue',
 'MLLL3KH/A': 'max 1tb silver',
 'MLLM3KH/A': 'max 1tb gold',
-'MLLK3KH/A': 'max 1tb graphite'
+'MLLK3KH/A': 'max 1tb graphite',
+'MNCY3KH/A': 'max 128GB alpinegreen',
+'MND03KH/A': 'max 256GB alpinegreen',
+'MND13KH/A': 'max 512GB alpinegreen',
+'MND23KH/A': 'max 1tb alpinegreen'
 };
