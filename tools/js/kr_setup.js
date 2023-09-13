@@ -8,7 +8,7 @@ $(function() {
         // check url parameter
         var currentUrl = window.location.href;
         var urlMatch = currentUrl.match(/html#([0-9a-z]*)/);
-        var type = "iphone14pro";
+        var type = "iphone15pro";
         if (urlMatch && urlMatch.length > 0) {
             type = urlMatch[1];
         }
