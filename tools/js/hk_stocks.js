@@ -13,13 +13,15 @@ $(function() {
     }
 
     function aggregateData(data) {
+        var stockData = {"stores": {}};
         if (!data.body || !data.body.stores) {
-            throw new Error("No data. Try later.");
+            // throw new Error("No data. Try later.");
+            return stockData;
         }
-        var stockData = {};
         var stores = data.body["stores"];
         if (!stores) {
-            throw new Error("No data. Try later.");
+            // throw new Error("No data. Try later.");
+            return stockData;
         }
         for (var index in stores) {
             var store = stores[index];
@@ -45,11 +47,39 @@ $(function() {
         return stockData;
     }
 
+    function getStoreList() {
+        var url = "https://www.apple.com/rsp-web/store-search?locale=en_US";
+        // get json data
+        //cors_url = 'https://api.allorigins.win/get?url=';
+        cors_url = 'https://polished-disk-d743.nuridol.workers.dev/?';
+        //cors_url = 'https://cors-proxy.htmldriven.com/?url=';
+        //cors_url = 'https://yacdn.org/proxy/';
+        // encodeURIComponent(
+        return $.ajax({
+            url: cors_url + url,
+            //url: url,
+            beforeSend: function(xhr) {
+                if (xhr.overrideMimeType) {
+                    xhr.overrideMimeType("application/json");
+                }
+            },
+            dataType: 'json',
+            async: true,
+            cache: false
+        });
+    }
+
     function getPickupData(startCode) {
         var url = APPLE_STORE_URL + startCode + getModelListUrl();
         // get json data
+        //cors_url = 'https://api.allorigins.win/get?url=';
+        cors_url = 'https://polished-disk-d743.nuridol.workers.dev/?';
+        //cors_url = 'https://cors-proxy.htmldriven.com/?url=';
+        //cors_url = 'https://yacdn.org/proxy/';
+        // encodeURIComponent(
         return $.ajax({
-            url: 'https://cors-anywhere.herokuapp.com/' + url,
+            url: cors_url + url,
+            //url: url,
             beforeSend: function(xhr) {
                 if (xhr.overrideMimeType) {
                     xhr.overrideMimeType("application/json");
@@ -65,14 +95,15 @@ $(function() {
         var stockData = {
             "updated": (new Date).getTime()
         };
-        // R499/name: 
         $.when(
             getPickupData('R499')
         ).then(function(data1) {
             // All is ready now, so...
-            const d1 = aggregateData(data1);
+            const d1 = aggregateData(data1[0]);
             stockData["stores"] = Object.assign({}, d1.stores);
-
+            if (stockData["stores"].length < 1) {
+                throw new Error("No data. Try later.");
+            }
             drawWatchList();
             clearTable();
             drawTable(stockData);
