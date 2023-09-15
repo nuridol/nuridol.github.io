@@ -99,7 +99,7 @@ $(function() {
             getPickupData('R499')
         ).then(function(data1) {
             // All is ready now, so...
-            const d1 = aggregateData(data1[0]);
+            const d1 = aggregateData(data1);
             stockData["stores"] = Object.assign({}, d1.stores);
             if (stockData["stores"].length < 1) {
                 throw new Error("No data. Try later.");
