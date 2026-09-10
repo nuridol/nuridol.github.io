@@ -1,199 +1,321 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36127443-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WBXWKVDB');</script>
+    <!-- End Google Tag Manager -->
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-36127443-1');
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/sandstone/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://raw.githubusercontent.com/aFarkas/html5shiv/master/dist/html5shiv.min.js"></script>
-    <![endif]-->
-
     <meta name="description" content="iPhone stock check(HK)">
     <meta name="author" content="NuRi">
-    <!-- http://www.wpzoom.com/wpzoom/new-freebie-wpzoom-developer-icon-set-154-free-icons/ -->
     <link rel="shortcut icon" href="icon/tools.png">
     <title>NuRi's Tools - Apple store pickup checker(HK)</title>
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <style>
         body {
-            padding-top: 3.5rem;
-            padding-bottom: 3.5rem;
+            padding-top: 3.2rem;
+            padding-bottom: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .navbar {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        /* Nav Pills compact & horizontal scroll on mobile */
+        .model-nav-wrap {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 0.2rem;
+        }
+
+        .model-nav-wrap::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .model-nav-wrap::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .model-nav-wrap .nav-link {
+            font-size: 0.78rem;
+            padding: 0.2rem 0.6rem;
+        }
+
+        /* Status bar - Option 1 Soft Info Blue */
+        #status-bar {
+            font-size: 0.72rem;
+            min-height: 1.6rem;
+            line-height: 1.2;
+            background-color: #cff4fc;
+            border: 1px solid #9eeaf9;
+            color: #055160;
+            font-weight: 500;
+        }
+
+        /* Refresh button orange style */
+        #refresh {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #212529;
+        }
+
+        #refresh:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+        }
+
+        #refresh:focus,
+        #refresh:active {
+            background-color: #ffc107 !important;
+            border-color: #ffc107 !important;
+            color: #212529 !important;
+            box-shadow: none !important;
+        }
+
+        /* High-density sticky table - no artificial min-height */
+        .table-box-wrap {
+            position: relative;
+            max-height: calc(100vh - 225px);
+            overflow: auto;
+            border: 1px solid var(--bs-border-color);
+            border-radius: 0.25rem;
+        }
+
+        .table-box-wrap:has(tbody:empty) {
+            border: none;
         }
 
         #table {
-            font-size: 70%;
+            font-size: 0.7rem;
+            margin-bottom: 0;
+            white-space: nowrap;
         }
 
-        footer {
-            height: 2rem;
-            background-color: #f5f5f5;
-        }
-
-        td,
-        th {
+        #table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #f1f3f5;
+            border-bottom: 1px solid #ced4da;
+            padding: 0.25rem 0.35rem;
+            vertical-align: middle;
             text-align: center;
+            line-height: 1.1;
+        }
+
+        #table thead th.model-header {
+            text-align: left;
+            position: sticky;
+            left: 0;
+            z-index: 11;
+            background-color: #e9ecef;
+        }
+
+        #table tbody th.model-name {
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            background-color: var(--bs-body-bg, #fff);
+            text-align: left;
+            font-weight: 500;
+            padding: 0.15rem 0.35rem;
+            line-height: 1.2;
+            border-right: 1px solid #dee2e6;
+        }
+
+        #table tbody th.model-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #table tbody th.model-name a:hover {
+            text-decoration: underline;
+            color: var(--bs-primary);
+        }
+
+        #table td {
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            padding: 0.15rem 0.35rem;
+            line-height: 1.2;
+            user-select: none;
+            transition: none;
+        }
+
+        #table td:hover {
+            filter: brightness(0.92);
+        }
+
+        /* Fix background clash on in-stock cells with stripes */
+        #table td.in-stock {
+            background-color: #c3e6cb !important;
+            color: #155724 !important;
+            font-weight: 600;
+        }
+
+        #table td.out-of-stock {
+            color: #adb5bd;
+        }
+
+        #table td.watched {
+            outline: 2px solid #0d6efd;
+            outline-offset: -2px;
         }
 
         .shop-column {
-            min-width: 10%;
-            width: 12%;
-            max-width: 50%;
-            word-break: break-word;
+            min-width: 68px;
         }
 
-        .nav-dropdown-icon {
-            margin: 0 0.3rem 0 0.2rem;
+        footer {
+            height: 1.8rem;
+            line-height: 1.8rem;
+            background-color: #f8f9fa;
         }
 
-        @media all and (max-width: 1000px) {
-            .table-box-wrap {
-                position: relative;
-                padding-top: 2rem;
-            }
-
-            .table-box-wrap .table-box {
-                max-height: 400px;
-                overflow: auto;
-                overflow-x: hidden;
-            }
-
-            .table-box-wrap .table-box table {
-                width: 100%;
-                table-layout: fixed;
-                word-break: break-all;
-            }
-
-            .table-box-wrap .table-box table thead tr {
-                position: absolute;
-                top: 0;
-                width: 99%;
-            }
-
-            .table-box-wrap .table-box table thead tr th {
-                height: 2rem;
-            }
-
-            .table-box-wrap .table-box table tr {
-                display: inline-table;
-                width: 100%;
-            }
+        .badge-clickable {
+            cursor: pointer;
         }
 
-        @media all and (max-width: 767px) {
-            .table-box-wrap {
-                padding-top: 3.6rem;
-            }
-
-            .table-box-wrap .table-box table thead tr th {
-                height: 3.6rem;
-            }
+        .badge-clickable:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 
 <body>
-    <!-- Wrap all page content here -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBXWKVDB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm rounded small">
-        <div class="container">
-            <a class="navbar-brand" href="#">NuRi's Tools</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm py-1">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand fw-bold py-0 fs-6" href="#">NuRi's Tools</a>
+            <button class="navbar-toggler py-0 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse"
                 aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="width: 1rem; height: 1rem;"></span>
             </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="if_convert.html"><span
-                                class="fa fa-code fa-lg"></span>Iframe</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ut_convert.html"><span
-                                class="fa fa-youtube fa-lg"></span>YouTube</a></li>
-                    <li class="nav-item"><a class="nav-link" href="stock_kr.html"><span
-                                class="fa fa-apple fa-lg"></span>Pickup(KR)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="stock_jp.html"><span
-                                class="fa fa-apple fa-lg"></span>Pickup(JP)</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="stock_hk.html"><span
-                                class="fa fa-apple fa-lg"></span>Pickup(HK)</a></li>
+                <ul class="navbar-nav me-auto mb-0">
+                    <li class="nav-item">
+                        <a class="nav-link py-1" href="if_convert.html"><i class="bi bi-code-slash me-1"></i>Iframe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-1" href="ut_convert.html"><i class="bi bi-youtube me-1"></i>YouTube</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-1" href="stock_kr.html"><i class="bi bi-apple me-1"></i>Pickup(KR)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-1" href="stock_jp.html"><i class="bi bi-apple me-1"></i>Pickup(JP)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold py-1" href="stock_hk.html"><i class="bi bi-apple me-1"></i>Pickup(HK)</a>
+                    </li>
                 </ul>
             </div>
-            <!--/.nav-collapse -->
         </div>
     </nav>
 
     <!-- Begin page content -->
-    <main class="container">
-        <div class="pb-2 mt-4 mb-2 border-bottom">
-            <h3>Apple Store <a href="https://www.apple.com/hk/"><span class="badge badge-danger">Pickup</span></a>
-                <span class="fa fa-search"></span> <small><span
-                        class="badge badge-pill badge-secondary small">HK</span></small>
-            </h3>
-        </div>
-
-        <div class="btn-group btn-group-toggle" id="options">
-            <a href="#iphone17" class="btn btn-success" id="option_iphone17" role="button">iPhone17</a>
-            <a href="#iphoneair" class="btn btn-success" id="option_iphoneair" role="button">iPhone Air</a>
-            <a href="#iphone17pro" class="btn btn-success" id="option_iphone17pro" role="button">iPhone17 Pro</a>
-            <a href="#ipad" class="btn btn-success" id="option_ipad" role="button">iPad</a>
-        </div>
-
-        <div class="card">
-            <div class="card-header text-white small bg-info" id="time">Wait... It's a Tim Cook's trap!</div>
-            <div class="table-box-wrap">
-                <div class="table-box">
-                    <table class="table table-striped table-hover table-sm" id="table">
-                        <thead>
-                            <!-- th>type</th><th>Shibuya</th><th>Omotesando</th><th>Ginza</th -->
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+    <main class="container-fluid px-3">
+        <!-- Title bar with fixed icon action buttons -->
+        <div class="d-flex align-items-center justify-content-between pt-1 pb-1 mb-2 border-bottom">
+            <div class="d-flex align-items-center gap-2">
+                <h5 class="mb-0 fw-bold fs-6">
+                    Apple Store
+                    <a id="pickupLink" href="https://www.apple.com/hk/shop/buy-iphone/iphone-18-pro" target="_blank" rel="noopener" class="text-decoration-none">
+                        <span class="badge bg-danger">Pickup</span>
+                    </a>
+                    <i class="bi bi-search ms-1 text-muted"></i>
+                    <span class="badge rounded-pill bg-secondary small align-middle">HK</span>
+                </h5>
+            </div>
+            <div class="d-flex align-items-center gap-1 flex-shrink-0">
+                <span id="loadingSpinner" class="spinner-border spinner-border-sm text-primary d-none" role="status" aria-hidden="true" style="width: 0.85rem; height: 0.85rem;"></span>
+                <button type="button" class="btn btn-warning btn-sm py-0 px-2" id="refresh" title="Refresh">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm py-0 px-2 d-none" id="btnDebugToggle" title="Local Debug Mode Toggle">
+                    <i class="bi bi-bug"></i>
+                </button>
             </div>
         </div>
 
-        <div class="card mt-3 mb-3" id="watchPanel">
-            <div class="card-header small">Watch items</div>
-            <div class="card-body">
-                <div>
-                    <input type="hidden" value="" id="watchData">
-                    <input type="hidden" value="" id="lastCheck">
-                    <textarea class="form-control" rows="3" id="logtext" readonly placeholder="check log"></textarea>
-                    <div id="watchList" class="small"></div>
-                </div>
+        <!-- Model selection tabs -->
+        <div class="model-nav-wrap mb-1">
+            <div class="nav nav-pills flex-nowrap" id="options" role="tablist">
+                <a href="#iphone18pro" class="nav-link me-1" id="option_iphone18pro">iPhone 18 Pro</a>
+                <a href="#iphoneduo" class="nav-link me-1" id="option_iphoneduo">iPhone Duo</a>
+                <a href="#iphone17" class="nav-link me-1" id="option_iphone17">iPhone 17</a>
+                <a href="#iphoneair" class="nav-link me-1" id="option_iphoneair">iPhone Air</a>
+                <a href="#ipad" class="nav-link me-1" id="option_ipad">iPad</a>
             </div>
         </div>
 
-        <button type="button" class="btn btn-warning btn-sm" id="refresh">Refresh</button>
+        <!-- Dedicated Status & Error Bar (Option 1 Soft Info Blue) -->
+        <div id="status-bar" class="d-flex align-items-center justify-content-between px-2 py-1 mb-2 rounded shadow-sm">
+            <span id="time" class="font-monospace text-truncate w-100">Loading data...</span>
+        </div>
+
+        <!-- Stock Table -->
+        <div class="table-box-wrap mb-2">
+            <table class="table table-striped table-hover table-sm" id="table">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Watch items & log panel (Compact, controls inside) -->
+        <div class="card border-0 bg-light py-1 px-2 mb-2" id="watchPanel">
+            <input type="hidden" value="" id="watchData">
+            <input type="hidden" value="" id="lastCheck">
+            <div class="d-flex align-items-center justify-content-between mb-1">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="fw-semibold text-secondary" style="font-size: 0.72rem;">
+                        <i class="bi bi-bell me-1"></i>Watch items
+                    </span>
+                    <span class="text-muted" style="font-size: 0.68rem;">(Click cell to add/remove)</span>
+                </div>
+                <div id="watchControls" class="d-inline-flex align-items-center gap-2"></div>
+            </div>
+            <div id="watchList" class="d-flex flex-wrap gap-1 mb-1"></div>
+            <textarea class="form-control font-monospace p-1" rows="2" id="logtext" readonly placeholder="Stock watch log will be shown here." style="font-size: 0.7rem;"></textarea>
+        </div>
     </main>
 
-    <footer class="fixed-bottom">
-        <div class="container small">
-            <p class="text-muted credit pt-1">&copy; nuridol.net</p>
+    <footer class="fixed-bottom border-top">
+        <div class="container-fluid text-center text-muted" style="font-size: 0.7rem;">
+            &copy; nuridol.net
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    <!-- Bootstrap 5.3.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="js/hk_setup.js?_ver=20250912"></script>
+
+    <!-- Stock check scripts -->
+    <script src="js/hk_stocks.js?_ver=20260910"></script>
+    <script src="js/hk_setup.js?_ver=20260910"></script>
 </body>
 
 </html>
