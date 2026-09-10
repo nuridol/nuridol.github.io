@@ -83,12 +83,12 @@ social:
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
-# Analytics
+# Analytics (Managed via GTM in _includes/head/custom.html & _layouts/default.html)
 analytics:
-  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          : "UA-36127443-1"
-    anonymize_ip         : # true, false (default)
+    tracking_id          :
+    anonymize_ip         :
 
 
 # Site Author
