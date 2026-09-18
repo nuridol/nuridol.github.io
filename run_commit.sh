@@ -8,9 +8,9 @@ function auto_commit {
     if [ -d "${target_dir}" ]; then
         echo "Auto commit: ${target_dir}"
         cd "${target_dir}"
-        /usr/local/bin/git add .
-        /usr/local/bin/git commit -a -m "auto commit $(/bin/date +%F-%T)"
-        /usr/local/bin/git push
+        /opt/homebrew/bin/git add .
+        /opt/homebrew/bin/git commit -a -m "auto commit $(/bin/date +%F-%T)"
+        /opt/homebrew/bin/git push
         echo "DONE!"
     fi
     )
