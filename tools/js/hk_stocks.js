@@ -3,9 +3,9 @@
     'use strict';
 
     const COUNTRY = 'hk';
-    const CORS_PROXY = 'https://polished-disk-d743.nuridol.workers.dev/?';
+    const CORS_PROXY = 'https://stock-api.nuridol.net/?';
     const APPLE_STORE_URL = `https://www.apple.com/${COUNTRY}/shop/retail/pickup-message?pl=true&searchNearby=true&store=`;
-    const STORE_SEEDS = ['R499', 'R409']; // Causeway Bay, ifc mall
+    const STORE_SEEDS = ['R499']; // Canton Road 단일 거점 (searchNearby로 홍콩 전 매장 6곳 수집)
 
     function getBuyUrl() {
         const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase() || 'iphone18pro';
@@ -268,13 +268,24 @@
     }
 
     function runWatchLoop() {
-        if (!isWatching) return;
+        if (!isWatching || document.hidden) return;
         getStoreData().finally(() => {
-            if (isWatching) {
+            if (isWatching && !document.hidden) {
                 watchTimer = setTimeout(runWatchLoop, 15000);
             }
         });
     }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (watchTimer) {
+                clearTimeout(watchTimer);
+                watchTimer = null;
+            }
+        } else if (isWatching) {
+            runWatchLoop();
+        }
+    });
 
     function checkStockData(data) {
         if (!isWatching) return;

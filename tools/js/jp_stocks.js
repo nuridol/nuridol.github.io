@@ -3,7 +3,7 @@
     'use strict';
 
     const COUNTRY = 'jp';
-    const CORS_PROXY = 'https://polished-disk-d743.nuridol.workers.dev/?';
+    const CORS_PROXY = 'https://stock-api.nuridol.net/?';
     const APPLE_STORE_URL = `https://www.apple.com/${COUNTRY}/shop/retail/pickup-message?pl=true&searchNearby=true&store=`;
     const STORE_SEEDS = ['R079', 'R091', 'R048']; // Ginza, Shinsaibashi, Fukuoka Tenjin
 
@@ -268,13 +268,24 @@
     }
 
     function runWatchLoop() {
-        if (!isWatching) return;
+        if (!isWatching || document.hidden) return;
         getStoreData().finally(() => {
-            if (isWatching) {
+            if (isWatching && !document.hidden) {
                 watchTimer = setTimeout(runWatchLoop, 15000);
             }
         });
     }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (watchTimer) {
+                clearTimeout(watchTimer);
+                watchTimer = null;
+            }
+        } else if (isWatching) {
+            runWatchLoop();
+        }
+    });
 
     function checkStockData(data) {
         if (!isWatching) return;

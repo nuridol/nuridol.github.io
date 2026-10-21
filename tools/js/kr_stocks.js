@@ -3,9 +3,9 @@
     'use strict';
 
     const COUNTRY = 'kr';
-    const CORS_PROXY = 'https://polished-disk-d743.nuridol.workers.dev/?';
+    const CORS_PROXY = 'https://stock-api.nuridol.net/?';
     const APPLE_STORE_URL = `https://www.apple.com/${COUNTRY}/shop/retail/pickup-message?pl=true&searchNearby=true&store=`;
-    const STORE_SEEDS = ['R692', 'R747']; // 가로수길, 여의도 거점 (searchNearby로 서울/경기 전 매장 수집)
+    const STORE_SEEDS = ['R692']; // 가로수길 단일 거점 (searchNearby로 한국 전 매장 7곳 수집)
 
     function getBuyUrl() {
         const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase() || 'iphone18pro';
@@ -268,13 +268,24 @@
     }
 
     function runWatchLoop() {
-        if (!isWatching) return;
+        if (!isWatching || document.hidden) return;
         getStoreData().finally(() => {
-            if (isWatching) {
+            if (isWatching && !document.hidden) {
                 watchTimer = setTimeout(runWatchLoop, 15000);
             }
         });
     }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (watchTimer) {
+                clearTimeout(watchTimer);
+                watchTimer = null;
+            }
+        } else if (isWatching) {
+            runWatchLoop();
+        }
+    });
 
     function checkStockData(data) {
         if (!isWatching) return;
