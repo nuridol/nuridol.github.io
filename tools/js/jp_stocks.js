@@ -8,16 +8,16 @@
     const STORE_SEEDS = ['R079', 'R091', 'R048']; // Ginza, Shinsaibashi, Fukuoka Tenjin
 
     function getBuyUrl() {
-        const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase() || 'iphone18pro';
+        const hash = (window.location.hash || '').replace(/^#/, '').toLowerCase() || 'iphoneduo';
         const typeMap = {
-            'iphone18pro': 'shop/buy-iphone/iphone-18-pro',
             'iphoneduo': 'shop/buy-iphone/iphone-duo',
+            'iphone18pro': 'shop/buy-iphone/iphone-18-pro',
             'iphone17': 'shop/buy-iphone/iphone-17',
             'iphoneair': 'shop/buy-iphone/iphone-air',
             'mac': 'shop/buy-mac/macbook-air',
             'ipad': 'ipad/'
         };
-        const path = typeMap[hash] || 'shop/buy-iphone/iphone-18-pro';
+        const path = typeMap[hash] || 'shop/buy-iphone/iphone-duo';
         return `https://www.apple.com/${COUNTRY}/${path}`;
     }
 
@@ -58,31 +58,66 @@
         }
     }
 
-    function getModelListUrl() {
+    const CHUNK_SIZE = 16; // Apple pickup-message API limits to max 20 parts per request
+
+    function getModelListChunks() {
         const modelList = window.MODEL_LIST || {};
-        let query = '';
-        let i = 0;
-        for (const key of Object.keys(modelList)) {
-            query += `&parts.${i}=${encodeURIComponent(key)}`;
-            i++;
+        const keys = Object.keys(modelList);
+        if (keys.length === 0) return [];
+
+        const chunks = [];
+        for (let i = 0; i < keys.length; i += CHUNK_SIZE) {
+            chunks.push(keys.slice(i, i + CHUNK_SIZE));
         }
-        return query;
+        return chunks;
     }
 
     async function fetchPickupData(storeCode) {
-        const partsQuery = getModelListUrl();
-        if (!partsQuery) {
+        const chunks = getModelListChunks();
+        if (chunks.length === 0) {
             return { body: { stores: [] } };
         }
-        const fullUrl = `${CORS_PROXY}${APPLE_STORE_URL}${storeCode}${partsQuery}`;
-        const response = await fetch(fullUrl, {
-            method: 'GET',
-            cache: 'no-store'
+
+        const chunkPromises = chunks.map(async chunk => {
+            let query = '';
+            chunk.forEach((key, idx) => {
+                query += `&parts.${idx}=${encodeURIComponent(key)}`;
+            });
+            const fullUrl = `${CORS_PROXY}${APPLE_STORE_URL}${storeCode}${query}`;
+            const response = await fetch(fullUrl, {
+                method: 'GET',
+                cache: 'no-store'
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status} from ${storeCode}`);
+            }
+            return await response.json();
         });
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status} from ${storeCode}`);
+
+        const chunkResponses = await Promise.all(chunkPromises);
+
+        // Merge chunk responses into a single store list
+        const mergedStoresMap = {};
+        for (const res of chunkResponses) {
+            if (!res?.body?.stores || !Array.isArray(res.body.stores)) continue;
+            for (const store of res.body.stores) {
+                const sNum = store.storeNumber;
+                if (!mergedStoresMap[sNum]) {
+                    mergedStoresMap[sNum] = {
+                        ...store,
+                        partsAvailability: { ...(store.partsAvailability || {}) }
+                    };
+                } else {
+                    Object.assign(mergedStoresMap[sNum].partsAvailability, store.partsAvailability || {});
+                }
+            }
         }
-        return await response.json();
+
+        return {
+            body: {
+                stores: Object.values(mergedStoresMap)
+            }
+        };
     }
 
     function aggregateData(data) {
@@ -428,7 +463,12 @@
                 results.forEach(res => {
                     if (res) {
                         const agg = aggregateData(res);
-                        Object.assign(stockData.stores, agg.stores);
+                        for (const storeCode of Object.keys(agg.stores)) {
+                            if (!stockData.stores[storeCode]) {
+                                stockData.stores[storeCode] = {};
+                            }
+                            Object.assign(stockData.stores[storeCode], agg.stores[storeCode]);
+                        }
                     }
                 });
 

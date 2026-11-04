@@ -64,9 +64,13 @@ When clicking the title `Pickup` badge (`#pickupLink`) or the first column model
 The `#pickupLink` href is updated dynamically upon SPA tab switching (`switchModel`).
 
 ### Store Seed Codes for Pickup API
-- **KR**: `['R692', 'R747']` (Garosugil, Yeouido)
+- **KR**: `['R692']` (Garosugil; searchNearby discovers all 7 KR stores)
 - **JP**: `['R079', 'R091', 'R048']` (Ginza, Shinsaibashi, Fukuoka Tenjin)
 - **HK**: `['R499', 'R409']` (Causeway Bay, ifc mall)
+
+### Apple Pickup API Batch Limit & Chunking
+- Apple's `/shop/retail/pickup-message` API enforces a hard server-side limit of 20 parts (`parts.0` ~ `parts.19`) per request; parameters beyond 20 are ignored by Apple.
+- When `MODEL_LIST` contains more than 16 items (e.g., iPhone 18 Pro series with 32 models), stock engines (`*_stocks.js`) chunk parts into batches (`CHUNK_SIZE = 16`), fetch in parallel via `Promise.all`, and merge `partsAvailability` per store.
 
 ### Local Debug Mode & Mock Data
 - Mock files reside in `tools/test_data/mock_stock_<country>.json`.

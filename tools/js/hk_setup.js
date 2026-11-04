@@ -2,8 +2,8 @@
 (function (window, document) {
     'use strict';
 
-    const DEFAULT_TYPE = 'iphone18pro';
-    const VALID_TYPES = ['iphone18pro', 'iphoneduo', 'iphone17', 'iphoneair', 'ipad'];
+    const DEFAULT_TYPE = 'iphoneduo';
+    const VALID_TYPES = ['iphoneduo', 'iphone18pro', 'iphone17', 'iphoneair', 'ipad'];
 
     function getCurrentType() {
         const hash = window.location.hash.replace(/^#/, '').toLowerCase();
