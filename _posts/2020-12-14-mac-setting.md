@@ -16,7 +16,7 @@ Mac OS는 깔끔하고 정돈된 GUI가 유명하지만 그런 만큼 환경 설
 
 ### 숨긴 앱을 독에서 반투명하게 표시하기
 
-![Dim jidden mac apps on the Dock](https://user-images.githubusercontent.com/1617715/102049573-75bd0a00-3e24-11eb-8858-4df29c305c89.png)
+![Dim hidden mac apps on the Dock](https://user-images.githubusercontent.com/1617715/102049573-75bd0a00-3e24-11eb-8858-4df29c305c89.png)
 
 ```bash
 defaults write com.apple.Dock showhidden -bool yes; killall Dock

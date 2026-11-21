@@ -1,0 +1,84 @@
+{
+  "title": "NuRi's 몰라도 되는 개발 이야기",
+  "title_separator": "-",
+  "name": "NuRi",
+  "description": "이런 저런 개발 관련 이야기를 하는 곳",
+  "url": "https://www.nuridol.net",
+  "locale": "ko-KR",
+  "lang": "ko",
+  "timezone": "+09:00",
+  "words_per_minute": 150,
+  "paginate": 5,
+  "gtm_id": "GTM-WBXWKVDB",
+  "og_image": "/assets/images/logo.png",
+  "disqus_shortname": "www-nuridol-net",
+  "buymeacoffee_url": "https://www.buymeacoffee.com/nuridol",
+  "hits_badge_url": "https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fwww.nuridol.net&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false",
+  "navigation": [
+    {
+      "title": "About",
+      "url": "/about/"
+    },
+    {
+      "title": "TIL",
+      "url": "https://github.com/nuridol/TIL"
+    },
+    {
+      "title": "Tools",
+      "url": "/tools/"
+    },
+    {
+      "title": "Posts",
+      "url": "/year-archive/"
+    },
+    {
+      "title": "Categories",
+      "url": "/categories/"
+    }
+  ],
+  "author": {
+    "name": "NuRi",
+    "avatar": "/assets/images/logo.png",
+    "bio": "어떤 곳인지 알 수 없어 난감해 하실 필요는 없습니다. 저도 난감해요.",
+    "location": "Tokyo",
+    "links": [
+      {
+        "label": "Website",
+        "icon": "fas fa-fw fa-link",
+        "url": "http://nuridol.egloos.com"
+      },
+      {
+        "label": "Twitter",
+        "icon": "fab fa-fw fa-twitter-square",
+        "url": "https://twitter.com/nuridol"
+      },
+      {
+        "label": "GitHub",
+        "icon": "fab fa-fw fa-github",
+        "url": "https://github.com/nuridol"
+      },
+      {
+        "label": "Buy me a coffee",
+        "icon": "fas fa-coffee",
+        "url": "https://www.buymeacoffee.com/nuridol"
+      }
+    ]
+  },
+  "footer_links": [
+    {
+      "label": "Website",
+      "icon": "fas fa-fw fa-link",
+      "url": "http://nuridol.egloos.com"
+    },
+    {
+      "label": "Twitter",
+      "icon": "fab fa-fw fa-twitter-square",
+      "url": "https://twitter.com/nuridol"
+    },
+    {
+      "label": "GitHub",
+      "icon": "fab fa-fw fa-github",
+      "url": "https://github.com/nuridol"
+    }
+  ]
+}

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-JEKYLL_ENV=production bundle exec jekyll serve --drafts
+python3 scripts/build.py --serve --drafts

@@ -7,8 +7,13 @@ General guidelines and operational instructions for AI coding agents working on 
 ## 1. Project Overview
 
 `nuridol.github.io` is a personal GitHub Pages repository comprising:
-- **Jekyll Blog / Site**: Personal blog pages, posts, layouts, and static assets at the root and under `_posts/`, `_layouts/`, `_pages/`.
+- **Python Static Site Generator (`scripts/build.py`, `scripts/markdown_parser.py`)**: Zero-dependency Python 3 standard-library generator configured via `site_config.json`, building Markdown content from `_posts/` and `_pages/` with static theme assets (`assets/css/main.css`, `assets/js/site.js`).
 - **Web Utilities (`tools/`)**: Standalone, lightweight browser-based tools including Apple Store Pickup Checkers and HTML tag converters.
+
+Common commands:
+- Build site: `python3 scripts/build.py --output _site`
+- Local preview: `python3 scripts/build.py --serve --drafts` (or `./run_server.sh`)
+- Run tests: `python3 -m unittest discover -s scripts -p "test_*.py" -v`
 
 For work specifically within the `tools/` directory, refer to the dedicated guidelines in:
 - [`tools/AGENTS.md`](tools/AGENTS.md)
